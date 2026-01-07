@@ -1,5 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import ImageWithFallback from '../components/ImageWithFallback';
+import ImageGallery from '../components/ImageGallery';
+import { IMPACT_IMAGES } from '../constants/media';
 
 interface Initiative {
   title: string;
@@ -7,6 +10,8 @@ interface Initiative {
   color: string;
   description: string;
   achievements: string[];
+  image?: string;
+  gallery?: string[];
 }
 
 const Impact: React.FC = () => {
@@ -20,6 +25,13 @@ const Impact: React.FC = () => {
         'Organized 10+ technical workshops',
         'Mentored 50+ students',
         'Built collaborative learning programs'
+      ],
+      image: IMPACT_IMAGES.techCommunity,
+      gallery: [
+        '/images/impact/workshop-1.jpg',
+        '/images/impact/workshop-2.jpg',
+        '/images/impact/workshop-3.jpg',
+        '/images/impact/workshop-4.jpg',
       ]
     },
     {
@@ -31,7 +43,8 @@ const Impact: React.FC = () => {
         'Contributed to 15+ repositories',
         'Improved project documentation',
         'Collaborated with global developers'
-      ]
+      ],
+      image: IMPACT_IMAGES.openSource,
     },
     {
       title: 'Educational Fellowship',
@@ -42,6 +55,11 @@ const Impact: React.FC = () => {
         'Developed learning platform prototype',
         'Collaborated with NGOs',
         'Trained local educators on tech tools'
+      ],
+      image: IMPACT_IMAGES.fellowship,
+      gallery: [
+        '/images/impact/fellowship-1.jpg',
+        '/images/impact/fellowship-2.jpg',
       ]
     },
     {
@@ -53,6 +71,12 @@ const Impact: React.FC = () => {
         '200+ participants across 3 events',
         'Secured corporate sponsorships',
         'Facilitated networking opportunities'
+      ],
+      image: IMPACT_IMAGES.hackathon,
+      gallery: [
+        '/images/impact/hackathon-1.jpg',
+        '/images/impact/hackathon-2.jpg',
+        '/images/impact/hackathon-3.jpg',
       ]
     }
   ];
@@ -68,6 +92,13 @@ const Impact: React.FC = () => {
         {initiatives.map((initiative, index) => (
           <Col key={index} lg={6} className="mb-4">
             <Card className="card-custom">
+              {initiative.image && (
+                <ImageWithFallback
+                  src={initiative.image}
+                  alt={initiative.title}
+                  style={{ height: '200px', objectFit: 'cover', width: '100%' }}
+                />
+              )}
               <Card.Body>
                 <h4 style={{ color: initiative.color }}>{initiative.title}</h4>
                 <p className="text-muted mb-3">{initiative.period}</p>
@@ -77,6 +108,14 @@ const Impact: React.FC = () => {
                     <li key={idx}>{achievement}</li>
                   ))}
                 </ul>
+
+                {/* Image Gallery */}
+                {initiative.gallery && initiative.gallery.length > 0 && (
+                  <div className="mt-3">
+                    <h6 style={{ color: initiative.color, fontSize: '0.9rem' }}>Gallery:</h6>
+                    <ImageGallery images={initiative.gallery} title={initiative.title} />
+                  </div>
+                )}
               </Card.Body>
             </Card>
           </Col>

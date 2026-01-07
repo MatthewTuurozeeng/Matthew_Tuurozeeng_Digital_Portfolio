@@ -9,6 +9,10 @@ export interface Project {
   image: string;
   githubUrl?: string;
   liveUrl?: string;
+  // New media fields
+  screenshots?: string[];
+  demoVideo?: string;
+  featured?: boolean;
 }
 
 export interface ContactFormData {
@@ -30,12 +34,16 @@ export interface ImpactInitiative {
   color: string;
   description: string;
   achievements: string[];
+  // New media fields
+  image?: string;
+  gallery?: string[];
 }
 
 export interface Profile {
   name: string;
   title: string;
   bio: string;
+  profileImage: string;
   skills: {
     frontend: string[];
     backend: string[];

@@ -178,3 +178,52 @@ body {
     font-size: 1.75rem;
   }
 }
+
+
+/* Image Gallery Hover Effect */
+.gallery-image:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Video Play Button Hover */
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Profile Image Hover Effect */
+.hero-section img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Modal Improvements */
+.modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: var(--primary);
+  color: white;
+  border-bottom: none;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+/* Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--primary);
+  border-radius: 50%;
+  padding: 20px;
+}
+
+/* Badge Styling */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}

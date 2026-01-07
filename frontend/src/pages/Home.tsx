@@ -1,14 +1,42 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { PROFILE_IMAGE, HERO_BACKGROUND } from '../constants/media';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
   
   return (
     <>
-      <div className="hero-section text-center">
+      <div 
+        className="hero-section text-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(153, 69, 69, 0.85), rgba(156, 72, 79, 0.85)), url(${HERO_BACKGROUND})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
         <Container>
+          {/* Profile Picture */}
+          <div className="mb-4">
+            <img
+              src={PROFILE_IMAGE}
+              alt="Profile"
+              style={{
+                width: '180px',
+                height: '180px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: '5px solid white',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+              }}
+              onError={(e) => {
+                e.currentTarget.src = 'https://via.placeholder.com/180/994545/FFFFFF?text=Profile';
+              }}
+            />
+          </div>
+
           <h1 className="display-3 fw-bold mb-4">
             Software Engineer & Problem Solver
           </h1>
@@ -25,7 +53,7 @@ const Home: React.FC = () => {
             </Button>
             <Button 
               as="a"
-              href="/cv.pdf" 
+              href="/documents/cv.pdf" 
               download 
               className="btn-secondary-custom" 
               size="lg"
