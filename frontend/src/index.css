@@ -1,0 +1,180 @@
+:root {
+  --primary: #994545;
+  --secondary: #F5C9AE;
+  --accent: #9C484F;
+  --tertiary: #997446;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+.navbar-custom {
+  background-color: var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .navbar-brand {
+  color: white !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-custom .nav-link {
+  color: white !important;
+  font-weight: 500;
+  transition: color 0.3s;
+  margin: 0 0.5rem;
+}
+
+.navbar-custom .nav-link:hover {
+  color: var(--secondary) !important;
+}
+
+.navbar-custom .navbar-toggler {
+  border-color: white;
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Button Styles */
+.btn-primary-custom {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transition: all 0.3s;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.btn-secondary-custom {
+  background-color: var(--tertiary);
+  border-color: var(--tertiary);
+  color: white;
+  transition: all 0.3s;
+}
+
+.btn-secondary-custom:hover {
+  background-color: #7a5d38;
+  border-color: #7a5d38;
+  color: white;
+}
+
+/* Footer Styles */
+.footer-custom {
+  background-color: var(--primary);
+  color: white;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.footer-custom a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-custom a:hover {
+  color: var(--secondary);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+}
+
+.hero-section h1 {
+  font-weight: 700;
+}
+
+/* Section Title */
+.section-title {
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--secondary);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+/* Card Styles */
+.card-custom {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+}
+
+.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-custom .card-title {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Skill Badge */
+.skill-badge {
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 0.25rem;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Form Styles */
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(153, 69, 69, 0.25);
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.invalid-feedback {
+  display: block;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Loading Spinner */
+.spinner-border {
+  color: var(--primary);
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
