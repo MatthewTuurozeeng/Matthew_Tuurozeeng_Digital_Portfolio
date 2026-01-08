@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
     <BSNavbar expand="lg" className="navbar-custom" sticky="top">
       <Container>
         <BSNavbar.Brand as={Link} to="/">
-          Portfolio
+          Professional Portfolio
         </BSNavbar.Brand>
         <BSNavbar.Toggle aria-controls="navbar-nav" />
         <BSNavbar.Collapse id="navbar-nav">
