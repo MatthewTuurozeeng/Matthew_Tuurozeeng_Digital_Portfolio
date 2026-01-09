@@ -445,7 +445,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
           />
           {formData.cvUrl && (
             <div className="mt-2">
-              
+              <a
                 href={formData.cvUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -466,5 +466,6 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
     </Form>
   );
 };
+
 
 export default ProfileForm;

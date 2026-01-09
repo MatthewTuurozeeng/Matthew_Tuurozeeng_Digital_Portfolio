@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert, Spinner } from 'react-bootstrap';
-import { uploadApi } from '../../services/adminApi';
+import { uploadApi } from '../../services/AdminApi';
 
 interface FileUploadProps {
   onUploadComplete: (url: string) => void;

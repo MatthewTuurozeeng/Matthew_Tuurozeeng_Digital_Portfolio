@@ -3,7 +3,7 @@ import { Container, Table, Badge, Button, Modal } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../../components/admin/Sidebar';
-import { adminContactApi } from '../../services/adminApi';
+import { adminContactApi } from '../../services/AdminApi';
 
 interface Contact {
   _id: string;
@@ -85,6 +85,9 @@ const ManageContacts: React.FC = () => {
     }
   };
 
+ 
+
+
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
@@ -163,4 +166,27 @@ const ManageContacts: React.FC = () => {
             <Modal.Footer>
               <Button
                 variant="secondary"
-                onClick={() => handleStatusChange(
+                onClick={() => handleStatusChange(selectedContact!._id, 'read')}
+                disabled={selectedContact?.status === 'read' || selectedContact?.status === 'replied'}
+              >
+                Mark as Read
+              </Button>
+              <Button
+                variant="success"
+                onClick={() => handleStatusChange(selectedContact!._id, 'replied')}
+                disabled={selectedContact?.status === 'replied'}
+              >
+                Mark as Replied
+              </Button>
+              <Button variant="danger" onClick={() => handleDelete(selectedContact!._id)}>
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </Container>
+        <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+      </div>
+    </div>
+  );
+}
+export default ManageContacts;

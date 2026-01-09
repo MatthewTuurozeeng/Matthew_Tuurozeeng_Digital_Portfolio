@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Sidebar from '../../components/admin/Sidebar';
 import DashboardCard from '../../components/admin/DashboardCard';
-import { adminProjectsApi, adminImpactApi, adminContactApi } from '../../services/adminApi';
+import { adminProjectsApi, adminImpactApi, adminContactApi } from '../../services/AdminApi';
 
 const Dashboard: React.FC = () => {
   const [stats, setStats] = useState({

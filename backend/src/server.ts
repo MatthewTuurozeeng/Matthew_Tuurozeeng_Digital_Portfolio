@@ -2,19 +2,19 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
-import connectDB from '../backend/src/config/database';
-import { errorHandler } from '../backend/src/middleware/ErrorHandler';
+import connectDB from './config/database';
+import { errorHandler } from './middleware/ErrorHandler';
 
 // Load environment variables
 dotenv.config();
 
 // Import routes
-import authRoutes from '../backend/src/routes/AuthRoute';
-import projectRoutes from '../backend/src/routes/ProjectRoute';
-import impactRoutes from '../backend/src/routes/ImpactRoute';
-import profileRoutes from '../backend/src/routes/ProfileRoute';
-import contactRoutes from '../backend/src/routes/ContactRoute';
-import uploadRoutes from '../backend/src/routes/UploadRoute';
+import authRoutes from './routes/AuthRoute';
+import projectRoutes from './routes/ProjectRoute';
+import impactRoutes from './routes/ImpactRoute';
+import profileRoutes from './routes/ProfileRoute';
+import contactRoutes from './routes/ContactRoute';
+import uploadRoutes from './routes/UploadRoute';
 
 // Initialize express app
 const app: Application = express();
@@ -60,7 +60,7 @@ app.use((req: Request, res: Response) => {
 app.use(errorHandler);
 
 // Start server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });

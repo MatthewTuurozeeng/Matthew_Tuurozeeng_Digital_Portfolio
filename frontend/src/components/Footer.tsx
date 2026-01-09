@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <Container>
         <Row>
           <Col md={6} className="text-center text-md-start mb-3 mb-md-0">
-            <p className="mb-0">© 2024 Professional Portfolio. All rights reserved.</p>
+            <p className="mb-0">© 2026 Professional Portfolio. All rights reserved.</p>
           </Col>
           <Col md={6} className="text-center text-md-end">
             <a href="https://www.linkedin.com/in/matthewtuurozeeng" target="_blank" rel="noopener noreferrer" className="me-3">

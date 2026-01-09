@@ -4,7 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../../components/admin/Sidebar';
 import FileUpload from '../../components/admin/FileUpload';
-import { adminProfileApi } from '../../services/adminApi';
+import { adminProfileApi } from '../../services/AdminApi';
 
 const ManageProfile: React.FC = () => {
   const [loading, setLoading] = useState(false);

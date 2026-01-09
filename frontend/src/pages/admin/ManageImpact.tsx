@@ -4,7 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../../components/admin/Sidebar';
 import FileUpload from '../../components/admin/FileUpload';
-import { adminImpactApi } from '../../services/adminApi';
+import { adminImpactApi } from '../../services/AdminApi';
 
 interface Impact {
   _id: string;
