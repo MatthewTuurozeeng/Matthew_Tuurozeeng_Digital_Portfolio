@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export const protect = async (
+export const authenticateToken = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -46,5 +46,17 @@ export const protect = async (
     next();
   } catch (error) {
     res.status(401).json({ message: 'Not authorized to access this route' });
+  }
+};
+
+export const isAdmin = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void => {
+  if (req.user && req.user.role === 'admin') {
+    next();
+  } else {
+    res.status(403).json({ message: 'Admin access only' });
   }
 };

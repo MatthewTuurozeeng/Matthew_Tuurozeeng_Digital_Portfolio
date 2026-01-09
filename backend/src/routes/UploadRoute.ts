@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { upload } from '../middleware/Upload';
-import { protect } from '../middleware/Auth';
+import { authenticateToken } from '../middleware/Auth';
 import cloudinary from '../config/cloudinary';
 import fs from 'fs';
 
@@ -11,7 +11,7 @@ const router = express.Router();
 // @access  Private
 router.post(
   '/single',
-  protect,
+  authenticateToken,
   upload.single('file'),
   async (req: Request, res: Response): Promise<void> => {
     try {
@@ -45,7 +45,7 @@ router.post(
 // @access  Private
 router.post(
   '/multiple',
-  protect,
+  authenticateToken,
   upload.array('files', 10),
   async (req: Request, res: Response): Promise<void> => {
     try {
@@ -87,7 +87,7 @@ router.post(
 // @access  Private
 router.delete(
   '/:publicId',
-  protect,
+  authenticateToken,
   async (req: Request, res: Response): Promise<void> => {
     try {
       const publicId = req.params.publicId.replace(/-/g, '/');

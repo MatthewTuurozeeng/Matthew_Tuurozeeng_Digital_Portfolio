@@ -1,30 +1,22 @@
 import express from 'express';
 import {
   submitContact,
-  getContacts,
+  getAllContacts,
+  getContactById,
   updateContactStatus,
   deleteContact,
 } from '../controllers/ContactController';
-import { protect } from '../middleware/Auth';
-import { body } from 'express-validator';
+import { authenticateToken, isAdmin } from '../middleware/Auth';
 
 const router = express.Router();
 
-router.post(
-  '/',
-  [
-    body('name').trim().notEmpty().withMessage('Name is required'),
-    body('email').isEmail().withMessage('Valid email is required'),
-    body('subject').trim().notEmpty().withMessage('Subject is required'),
-    body('message').trim().isLength({ min: 10 }).withMessage('Message must be at least 10 characters'),
-  ],
-  submitContact
-);
+// Public route
+router.post('/', submitContact);
 
-router.get('/', protect, getContacts);
-
-router.route('/:id')
-  .put(protect, updateContactStatus)
-  .delete(protect, deleteContact);
+// Protected admin routes
+router.get('/', authenticateToken, isAdmin, getAllContacts);
+router.get('/:id', authenticateToken, isAdmin, getContactById);
+router.patch('/:id/status', authenticateToken, isAdmin, updateContactStatus);
+router.delete('/:id', authenticateToken, isAdmin, deleteContact);
 
 export default router;

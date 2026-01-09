@@ -25,7 +25,7 @@ interface ProfileFormData {
   socialLinks: {
     linkedin: string;
     github: string;
-    twitter: string;
+    facebook: string;
     website: string;
   };
   cvUrl: string;
@@ -66,7 +66,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
     socialLinks: {
       linkedin: '',
       github: '',
-      twitter: '',
+      facebook: '',
       website: '',
     },
     cvUrl: '',
@@ -364,7 +364,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
                 </Form.Label>
                 <Form.Control
                   type="url"
-                  placeholder="https://linkedin.com/in/username"
+                  placeholder="https://www.linkedin.com/in/matthewtuurozeeng"
                   value={formData.socialLinks.linkedin}
                   onChange={(e) =>
                     setFormData({
@@ -382,7 +382,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
                 </Form.Label>
                 <Form.Control
                   type="url"
-                  placeholder="https://github.com/username"
+                  placeholder="https://github.com/MatthewTuurozeeng"
                   value={formData.socialLinks.github}
                   onChange={(e) =>
                     setFormData({
@@ -396,16 +396,16 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
             <Col md={6}>
               <Form.Group className="mb-3">
                 <Form.Label>
-                  <i className="bi bi-twitter"></i> Twitter
+                  <i className="bi bi-twitter"></i> Facebook
                 </Form.Label>
                 <Form.Control
                   type="url"
-                  placeholder="https://twitter.com/username"
-                  value={formData.socialLinks.twitter}
+                  placeholder="https://web.facebook.com/tuurozeeng.matthew"
+                  value={formData.socialLinks.facebook}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      socialLinks: { ...formData.socialLinks, twitter: e.target.value },
+                      socialLinks: { ...formData.socialLinks, facebook: e.target.value },
                     })
                   }
                 />

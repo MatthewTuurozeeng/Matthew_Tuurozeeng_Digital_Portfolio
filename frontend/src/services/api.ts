@@ -59,7 +59,7 @@ export interface Profile {
 
 // Create axios instance with base configuration
 const apiClient: AxiosInstance = axios.create({
-  baseURL: (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000/api',
+  baseURL: (import.meta as any).env?.VITE_API_URL || 'http://localhost:4000/api',
   headers: {
     'Content-Type': 'application/json',
   },

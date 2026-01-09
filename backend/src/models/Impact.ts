@@ -2,42 +2,70 @@ import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IImpact extends Document {
   title: string;
-  period: string;
-  color: string;
+  organization: string;
+  type: 'fellowship' | 'leadership' | 'volunteer' | 'mentorship' | 'award' | 'other';
   description: string;
+  longDescription?: string;
+  role?: string;
+  startDate: Date;
+  endDate?: Date;
+  current: boolean;
+  location?: string;
+  images: string[];
+  thumbnailImage?: string;
+  websiteUrl?: string;
   achievements: string[];
-  image?: string;
-  gallery?: string[];
+  impact?: string;
+  skills: string[];
+  featured: boolean;
   order: number;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const ImpactSchema: Schema = new Schema(
+const impactSchema = new Schema<IImpact>(
   {
     title: {
       type: String,
-      required: [true, 'Please add a title'],
+      required: true,
       trim: true,
     },
-    period: {
+    organization: {
       type: String,
-      required: [true, 'Please add a period'],
+      required: true,
+      trim: true,
     },
-    color: {
+    type: {
       type: String,
-      default: '#994545',
+      required: true,
+      enum: ['fellowship', 'leadership', 'volunteer', 'mentorship', 'award', 'other'],
     },
     description: {
       type: String,
-      required: [true, 'Please add a description'],
+      required: true,
     },
-    achievements: {
-      type: [String],
-      required: [true, 'Please add at least one achievement'],
+    longDescription: String,
+    role: String,
+    startDate: {
+      type: Date,
+      required: true,
     },
-    image: String,
-    gallery: [String],
+    endDate: Date,
+    current: {
+      type: Boolean,
+      default: false,
+    },
+    location: String,
+    images: [String],
+    thumbnailImage: String,
+    websiteUrl: String,
+    achievements: [String],
+    impact: String,
+    skills: [String],
+    featured: {
+      type: Boolean,
+      default: false,
+    },
     order: {
       type: Number,
       default: 0,
@@ -48,4 +76,7 @@ const ImpactSchema: Schema = new Schema(
   }
 );
 
-export default mongoose.model<IImpact>('Impact', ImpactSchema);
+// Index for sorting
+impactSchema.index({ order: 1, startDate: -1 });
+
+export default mongoose.model<IImpact>('Impact', impactSchema);

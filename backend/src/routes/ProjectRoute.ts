@@ -1,22 +1,22 @@
 import express from 'express';
 import {
-  getProjects,
-  getProject,
+  getAllProjects,
+  getProjectById,
   createProject,
   updateProject,
   deleteProject,
 } from '../controllers/ProjectController';
-import { protect } from '../middleware/Auth';
+import { authenticateToken, isAdmin } from '../middleware/Auth';
 
 const router = express.Router();
 
-router.route('/')
-  .get(getProjects)
-  .post(protect, createProject);
+// Public routes
+router.get('/', getAllProjects);
+router.get('/:id', getProjectById);
 
-router.route('/:id')
-  .get(getProject)
-  .put(protect, updateProject)
-  .delete(protect, deleteProject);
+// Protected admin routes
+router.post('/', authenticateToken, isAdmin, createProject);
+router.put('/:id', authenticateToken, isAdmin, updateProject);
+router.delete('/:id', authenticateToken, isAdmin, deleteProject);
 
 export default router;
