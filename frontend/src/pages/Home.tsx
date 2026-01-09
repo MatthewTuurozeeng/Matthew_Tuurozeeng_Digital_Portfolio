@@ -11,11 +11,18 @@ const Home: React.FC = () => {
       <div 
         className="hero-section text-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(153, 69, 69, 0.85), rgba(156, 72, 79, 0.85)), url(${HERO_BACKGROUND})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
+            backgroundImage: `
+              linear-gradient(
+                rgba(0, 0, 0, 0.45),
+                rgba(0, 0, 0, 0.45)
+              ),
+              url(${HERO_BACKGROUND})
+            `,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+          }}
+
       >
         <Container>
           {/* Profile Picture */}

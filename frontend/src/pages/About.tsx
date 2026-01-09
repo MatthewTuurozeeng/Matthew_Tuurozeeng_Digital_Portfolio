@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import ProfileImage from '../assets/images/profileImage/profile-photo.jpg';
+
 
 interface Skill {
   category: string;
@@ -53,9 +55,20 @@ const About: React.FC = () => {
   return (
     <Container className="py-5">
       <h2 className="section-title">About Me</h2>
-      
-      <Row className="mt-5">
-        <Col lg={6} className="mb-4">
+
+      {/* <Row className="align-items-center mt-5 mb-5"> */}
+        <Row className="align-items-center justify-content-center">
+        {/* Profile Image */}
+        <Col lg={5} className="text-center mb-4 mb-lg-0">
+          <img
+            src={ProfileImage}
+            alt="Matthew Tuurozeeng"
+            className="about-profile-image"
+          />
+        </Col>
+
+        {/* Intro Text */}
+        <Col lg={7}>
           <h3 style={{ color: '#994545' }}>Background</h3>
           <p className="lead">
             I am a dedicated Computer Science student with a passion for building innovative 
@@ -68,20 +81,8 @@ const About: React.FC = () => {
             collaborative environments and enjoy tackling complex challenges.
           </p>
         </Col>
-        
-        <Col lg={6} className="mb-4">
-          <h3 style={{ color: '#994545' }}>Career Goals</h3>
-          <p className="lead">
-            My goal is to join a forward-thinking organization where I can contribute to 
-            innovative projects while continuing to grow as a software engineer.
-          </p>
-          <p>
-            I am particularly interested in backend systems, cloud architecture, and artificial 
-            intelligence. I aim to build scalable solutions that positively impact users and 
-            businesses alike.
-          </p>
-        </Col>
       </Row>
+
       
       <div className="mt-5">
         <h3 style={{ color: '#994545' }} className="mb-4">Technical Skills</h3>

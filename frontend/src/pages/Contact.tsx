@@ -38,8 +38,8 @@ const Contact: React.FC = () => {
           <div className="mb-4">
             <h5 style={{ color: '#994545' }}>Email</h5>
             <p>
-              <a href="mailto:contact@example.com" style={{ color: '#994545' }}>
-                contact@example.com
+              <a href="mailto:tuurozeeng.matthew@ashesi.edu.gh" style={{ color: '#994545' }}>
+                tuurozeeng.matthew@ashesi.edu.gh
               </a>
             </p>
           </div>
@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
             <h5 style={{ color: '#994545' }}>Social Media</h5>
             <div>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/matthewtuurozeeng" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="me-3" 
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
                 LinkedIn
               </a>
               <a 
-                href="https://github.com" 
+                href="https://github.com/MatthewTuurozeeng" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="me-3" 
@@ -71,12 +71,12 @@ const Contact: React.FC = () => {
                 GitHub
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://web.facebook.com/tuurozeeng.matthew" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={{ color: '#994545', textDecoration: 'none' }}
               >
-                Twitter
+                Facebook
               </a>
             </div>
           </div>

@@ -197,11 +197,63 @@ body {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
+.hero-section img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-section {
+  padding: 5rem 0;
+  color: white;
+  background-size: contain;  /* show full image */
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+}
+.about-profile-image {
+  width: 380px;             /* wider for portrait */
+  height: 420px;            /* taller for full head-to-shoulders */
+  object-fit: cover;        /* crops correctly without stretching */
+  border-radius: 12px;      /* subtle rounded corners */
+  border: 4px solid var(--secondary); /* clean border */
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25); /* soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-profile-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+.about-image-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.about-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(153,69,69,0.2), rgba(156,72,79,0.2));
+  z-index: 0;
+}
+
+.about-profile-image {
+  position: relative;
+  z-index: 1;
+}
+
+
+
 
 /* Modal Improvements */
 .modal-content {
   border-radius: 12px;
   overflow: hidden;
+
 }
 
 .modal-header {
