@@ -1,14 +1,12 @@
 import express, { Request, Response } from 'express';
-import { upload } from '../middleware/Upload';
+import multer from 'multer';
 import { authenticateToken } from '../middleware/Auth';
 import cloudinary from '../config/cloudinary';
-import fs from 'fs';
+import { PassThrough } from 'stream';
 
 const router = express.Router();
+const upload = multer({ storage: multer.memoryStorage() }); // memory storage
 
-// @desc    Upload single file
-// @route   POST /api/upload/single
-// @access  Private
 router.post(
   '/single',
   authenticateToken,
@@ -21,13 +19,19 @@ router.post(
       }
 
       // Upload to Cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: 'portfolio',
-        resource_type: 'auto',
+      const result = await new Promise<any>((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: 'portfolio', resource_type: 'auto' },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+        const bufferStream = new PassThrough();
+        const file = req.file!; // non-null due to the earlier check
+        bufferStream.end(file.buffer);
+        bufferStream.pipe(stream);
       });
-
-      // Delete local file after upload
-      fs.unlinkSync(req.file.path);
 
       res.status(200).json({
         success: true,
@@ -35,72 +39,12 @@ router.post(
         publicId: result.public_id,
       });
     } catch (error) {
-      res.status(500).json({ message: 'Upload failed', error });
+      res
+        .status(500)
+        .json({ message: 'Upload failed', error: (error as Error).message });
     }
   }
 );
 
-// @desc    Upload multiple files
-// @route   POST /api/upload/multiple
-// @access  Private
-router.post(
-  '/multiple',
-  authenticateToken,
-  upload.array('files', 10),
-  async (req: Request, res: Response): Promise<void> => {
-    try {
-      if (!req.files || (req.files as Express.Multer.File[]).length === 0) {
-        res.status(400).json({ message: 'No files uploaded' });
-        return;
-      }
-
-      const files = req.files as Express.Multer.File[];
-      const uploadPromises = files.map(async (file) => {
-        const result = await cloudinary.uploader.upload(file.path, {
-          folder: 'portfolio',
-          resource_type: 'auto',
-        });
-
-        // Delete local file after upload
-        fs.unlinkSync(file.path);
-
-        return {
-          url: result.secure_url,
-          publicId: result.public_id,
-        };
-      });
-
-      const uploadedFiles = await Promise.all(uploadPromises);
-
-      res.status(200).json({
-        success: true,
-        files: uploadedFiles,
-      });
-    } catch (error) {
-      res.status(500).json({ message: 'Upload failed', error });
-    }
-  }
-);
-
-// @desc    Delete file from Cloudinary
-// @route   DELETE /api/upload/:publicId
-// @access  Private
-router.delete(
-  '/:publicId',
-  authenticateToken,
-  async (req: Request, res: Response): Promise<void> => {
-    try {
-      const publicId = req.params.publicId.replace(/-/g, '/');
-      await cloudinary.uploader.destroy(publicId);
-
-      res.status(200).json({
-        success: true,
-        message: 'File deleted successfully',
-      });
-    } catch (error) {
-      res.status(500).json({ message: 'Delete failed', error });
-    }
-  }
-);
 
 export default router;

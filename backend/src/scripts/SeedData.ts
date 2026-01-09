@@ -72,7 +72,9 @@ const seedData = async () => {
         category: 'web',
         status: 'in-progress',
         featured: true,
+        liveUrl:    'https://Matthew.portfolio.com',
         githubUrl: 'https://github.com/MatthewTuurozeeng/My_Portfolio_Website',
+       
         order: 1,
       },
       {

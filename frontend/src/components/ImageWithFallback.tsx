@@ -17,10 +17,17 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 }) => {
   const [imgSrc, setImgSrc] = useState<string>(src);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasError, setHasError] = useState<boolean>(false); // track if error occurred
 
   const handleError = () => {
-    setImgSrc(fallbackSrc);
-    setIsLoading(false);
+    if (!hasError) {
+      // try fallback once
+      setImgSrc(fallbackSrc);
+      setHasError(true);
+    } else {
+      // fallback also failed → stop loading
+      setIsLoading(false);
+    }
   };
 
   const handleLoad = () => {
