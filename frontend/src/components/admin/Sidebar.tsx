@@ -25,7 +25,6 @@ const Sidebar: React.FC = () => {
     >
       <div className="p-4">
         <h4 className="mb-4">Admin Dashboard</h4>
-        <p className="small mb-4">Welcome, {user?.email}</p>
       </div>
 
       <Nav className="flex-column">

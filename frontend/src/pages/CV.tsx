@@ -11,7 +11,7 @@ const CV: React.FC = () => {
         <div className="d-flex gap-3 justify-content-center mt-4">
           <Button 
             href="#master-cv"
-            className="btn-primary-custom"
+            className="btn-primary-custom btn-outline-custom"
             size="lg"
             onClick={(e) => {
               e.preventDefault();
@@ -46,6 +46,7 @@ const CV: React.FC = () => {
               <Button 
                 href="#master-cv" 
                 variant="outline-primary"
+                className="btn-primary-custom btn-outline-custom"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('cv-viewer')?.scrollIntoView({ behavior: 'smooth' });
@@ -70,6 +71,7 @@ const CV: React.FC = () => {
                   href="/documents/Matthew_Tuurozeeng_Resume.pdf" 
                   target="_blank"
                   variant="outline-primary"
+                  className="btn-primary-custom btn-outline-custom"
                   rel="noopener noreferrer"
                 >
                   👁️ View PDF

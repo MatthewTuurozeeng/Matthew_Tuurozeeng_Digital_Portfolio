@@ -1,4 +1,31 @@
 /* CV Specific Styles */
+
+.btn-primary-custom {
+  background-color: #994545;
+  border-color: #994545;
+  color: #ffffff;
+}
+
+.btn-primary-custom:hover,
+.btn-primary-custom:focus,
+.btn-primary-custom:active {
+  background-color: #7f3939;
+  border-color: #7f3939;
+  color: #ffffff;
+}
+
+/* For outline variant to match the same color */
+.btn-outline-custom {
+  color: #994545;
+  border-color: #994545;
+}
+
+.btn-outline-custom:hover,
+.btn-outline-custom:focus {
+  background-color: #994545;
+  color: #ffffff;
+  border-color: #994545;
+}
 .My-CV-container { 
   max-width: 800px;
   margin: auto;

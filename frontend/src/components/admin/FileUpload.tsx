@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert, Spinner } from 'react-bootstrap';
+import { Form, Alert, Spinner } from 'react-bootstrap';
 import { uploadApi } from '../../services/AdminApi';
 
 interface FileUploadProps {
