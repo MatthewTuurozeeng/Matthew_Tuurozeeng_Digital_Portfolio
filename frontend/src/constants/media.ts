@@ -1,7 +1,7 @@
 // Profile and Background Images
 // src/constants/media.ts
 
-import HeroBackground from '../assets/images/backgroundImage/hero-image.svg';
+import HeroBackground from '../assets/images/backgroundImage/Hero-Imag.svg';
 import ProfileImage from '../assets/images/profileImage/profile-photo.jpg';
 
 export const HERO_BACKGROUND = HeroBackground;

@@ -60,12 +60,12 @@ const Home: React.FC = () => {
             </Button>
             <Button 
               as="a"
-              href="/documents/cv.pdf" 
+              href="/documents/Matthew_Tuurozeeng_Resume.pdf" 
               download 
               className="btn-secondary-custom" 
               size="lg"
             >
-              Download CV
+              Download Resume
             </Button>
             <Button 
               onClick={() => navigate('/contact')} 

@@ -95,7 +95,7 @@ const Contact: React.FC = () => {
               
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3">
-                  <Form.Label>Name *</Form.Label>
+                  <Form.Label>Name </Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Your full name"
@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
                 </Form.Group>
                 
                 <Form.Group className="mb-3">
-                  <Form.Label>Email *</Form.Label>
+                  <Form.Label>Email </Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="your.email@example.com"
@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
                 </Form.Group>
                 
                 <Form.Group className="mb-3">
-                  <Form.Label>Subject *</Form.Label>
+                  <Form.Label>Subject </Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="What is this about?"
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                 </Form.Group>
                 
                 <Form.Group className="mb-3">
-                  <Form.Label>Message *</Form.Label>
+                  <Form.Label>Message </Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={5}

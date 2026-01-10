@@ -5,6 +5,8 @@ import About from '../pages/About';
 import Projects from '../pages/Projects';
 import Impact from '../pages/Impact';
 import Contact from '../pages/Contact';
+import CV from '../pages/CV';
+
 
 // Admin pages
 import Login from '../pages/admin/Login';
@@ -26,6 +28,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/projects" element={<Projects />} />
       <Route path="/impact" element={<Impact />} />
       <Route path="/contact" element={<Contact />} />
+       <Route path="/cv" element={<CV />} />
 
       {/* Admin Routes */}
       <Route path="/admin/login" element={<Login />} />
