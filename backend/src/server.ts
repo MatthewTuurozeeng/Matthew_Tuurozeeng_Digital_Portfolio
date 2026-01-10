@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import connectDB from './config/database';
 import { errorHandler } from './middleware/ErrorHandler';
+import cvRoutes from './routes/CVroute';
 
 // Load environment variables
 dotenv.config();
@@ -41,6 +42,7 @@ app.use('/api/impact', impactRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/cv', cvRoutes);
 
 // Health check route
 app.get('/api/health', (req: Request, res: Response) => {
