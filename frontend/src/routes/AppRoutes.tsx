@@ -15,6 +15,7 @@ import ManageProjects from '../pages/admin/ManageProjects';
 import ManageImpact from '../pages/admin/ManageImpact';
 import ManageProfile from '../pages/admin/ManageProfile';
 import ManageContacts from '../pages/admin/ManageContacts';
+import ManageCV from '../pages/admin/ManageCV';
 
 // Protected Route
 import ProtectedRoute from '../utils/ProtectedRoutes';
@@ -53,6 +54,14 @@ const AppRoutes: React.FC = () => {
         element={
           <ProtectedRoute>
             <ManageImpact />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/cv"
+        element={
+          <ProtectedRoute>
+            <ManageCV />
           </ProtectedRoute>
         }
       />

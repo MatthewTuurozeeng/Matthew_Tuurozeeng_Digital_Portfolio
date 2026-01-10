@@ -316,6 +316,7 @@ const CV: React.FC = () => {
           </a>
           <Button 
             href="mailto:tuurozeeng.matthew@ashesi.edu.gh?subject=Job Opportunity&body=Hi Matthew, I reviewed your CV and would like to discuss..." 
+            className="btn btn-secondary-custom"
             variant="outline-success"
           >
             ✉️ Contact Me

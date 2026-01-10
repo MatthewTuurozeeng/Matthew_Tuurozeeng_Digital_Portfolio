@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from '../../context/AuthContext';
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
@@ -25,6 +25,7 @@ const Sidebar: React.FC = () => {
     >
       <div className="p-4">
         <h4 className="mb-4">Admin Dashboard</h4>
+        <p>Welcome, Admin!</p>
       </div>
 
       <Nav className="flex-column">
@@ -42,7 +43,7 @@ const Sidebar: React.FC = () => {
           className={`text-white px-4 py-3 ${isActive('/admin/projects') ? 'bg-dark' : ''}`}
           style={{ borderLeft: isActive('/admin/projects') ? '4px solid #F5C9AE' : 'none' }}
         >
-          💼 Projects
+          💼 Manage Projects
         </Nav.Link>
         <Nav.Link
           as={Link}
@@ -50,7 +51,16 @@ const Sidebar: React.FC = () => {
           className={`text-white px-4 py-3 ${isActive('/admin/impact') ? 'bg-dark' : ''}`}
           style={{ borderLeft: isActive('/admin/impact') ? '4px solid #F5C9AE' : 'none' }}
         >
-          🌟 Impact
+          🌟 Manage Impact
+        </Nav.Link>
+
+        <Nav.Link
+          as={Link}
+          to="/admin/cv"
+          className={`text-white px-4 py-3 ${isActive('/admin/cv') ? 'bg-dark' : ''}`}
+          style={{ borderLeft: isActive('/admin/cv') ? '4px solid #F5C9AE' : 'none' }}
+        >
+          📄 Manage Master CV & Resume
         </Nav.Link>
         <Nav.Link
           as={Link}

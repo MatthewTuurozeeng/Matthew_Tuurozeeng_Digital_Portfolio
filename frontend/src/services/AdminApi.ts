@@ -73,3 +73,17 @@ export const uploadApi = {
   delete: (publicId: string) =>
     axios.delete(`${API_URL}/upload/${publicId}`, { headers: getAuthHeader() }),
 };
+
+// CV Management
+export const adminCVApi = {
+  getAll: () => axios.get(`${API_URL}/cv/admin/all`, { headers: getAuthHeader() }),
+  getById: (id: string) => axios.get(`${API_URL}/cv/admin/${id}`, { headers: getAuthHeader() }),
+  create: (data: any) =>
+    axios.post(`${API_URL}/cv`, data, { headers: getAuthHeader() }),
+  update: (id: string, data: any) =>
+    axios.put(`${API_URL}/cv/${id}`, data, { headers: getAuthHeader() }),
+  delete: (id: string) =>
+    axios.delete(`${API_URL}/cv/${id}`, { headers: getAuthHeader() }),
+  toggleActive: (id: string) =>
+    axios.patch(`${API_URL}/cv/${id}/toggle`, {}, { headers: getAuthHeader() }),
+};
