@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "seed:admin": "ts-node src/utils/seedAdmin.ts",
-    "seed:data": "node src/utils/seedData.ts"
+    "seed:data": "node src/utils/seedData.ts",
+    "test:email": "ts-node src/utils/testEmail.ts"
   },
   "keywords": [],
   "author": "",

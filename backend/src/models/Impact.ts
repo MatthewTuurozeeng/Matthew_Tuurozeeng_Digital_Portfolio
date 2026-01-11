@@ -1,70 +1,48 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-export interface IImpact extends Document {
+export interface Impact extends Document {
   title: string;
-  organization: string;
-  type: 'fellowship' | 'leadership' | 'volunteer' | 'mentorship' | 'award' | 'other';
+  period: string;
+  color: string;
   description: string;
-  longDescription?: string;
-  role?: string;
-  startDate: Date;
-  endDate?: Date;
-  current: boolean;
-  location?: string;
-  images: string[];
-  thumbnailImage?: string;
-  websiteUrl?: string;
   achievements: string[];
-  impact?: string;
-  skills: string[];
-  featured: boolean;
+  image?: string;
+  gallery?: string[];
   order: number;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const impactSchema = new Schema<IImpact>(
+const impactSchema = new Schema<Impact>(
   {
     title: {
       type: String,
       required: true,
       trim: true,
     },
-    organization: {
+    period: {
       type: String,
       required: true,
       trim: true,
     },
-    type: {
+    color: {
       type: String,
-      required: true,
-      enum: ['fellowship', 'leadership', 'volunteer', 'mentorship', 'award', 'other'],
+      default: '#994545',
     },
     description: {
       type: String,
       required: true,
     },
-    longDescription: String,
-    role: String,
-    startDate: {
-      type: Date,
+    achievements: {
+      type: [String],
       required: true,
     },
-    endDate: Date,
-    current: {
-      type: Boolean,
-      default: false,
+    image: {
+      type: String,
     },
-    location: String,
-    images: [String],
-    thumbnailImage: String,
-    websiteUrl: String,
-    achievements: [String],
-    impact: String,
-    skills: [String],
-    featured: {
-      type: Boolean,
-      default: false,
+    gallery: {
+      type: [String],
+      default: [],
     },
     order: {
       type: Number,
@@ -76,7 +54,6 @@ const impactSchema = new Schema<IImpact>(
   }
 );
 
-// Index for sorting
-impactSchema.index({ order: 1, startDate: -1 });
+impactSchema.index({ order: 1, createdAt: -1 });
 
-export default mongoose.model<IImpact>('Impact', impactSchema);
+export default mongoose.model<Impact>('Impact', impactSchema);

@@ -607,7 +607,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                 </Col>
                 <Col md={4}>
                   <Form.Group className="mb-3">
-                    <Form.Label>Organization *</Form.Label>
+                    <Form.Label>Organization </Form.Label>
                     <Form.Control
                       type="text"
                       value={award.organization}
@@ -622,7 +622,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                 </Col>
                 <Col md={4}>
                   <Form.Group className="mb-3">
-                    <Form.Label>Date *</Form.Label>
+                    <Form.Label>Date </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="e.g., Jan 2024 - Jul 2027"
@@ -668,7 +668,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Company *</Form.Label>
+                        <Form.Label>Company </Form.Label>
                         <Form.Control
                           type="text"
                           value={exp.company}
@@ -683,7 +683,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Position *</Form.Label>
+                        <Form.Label>Position </Form.Label>
                         <Form.Control
                           type="text"
                           value={exp.position}
@@ -698,7 +698,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                     <Col md={4}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Location *</Form.Label>
+                        <Form.Label>Location </Form.Label>
                         <Form.Control
                           type="text"
                           value={exp.location}
@@ -713,7 +713,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                     <Col md={4}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Start Date *</Form.Label>
+                        <Form.Label>Start Date </Form.Label>
                         <Form.Control
                           type="text"
                           placeholder="e.g., Jun 2024"
@@ -729,7 +729,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                     <Col md={4}>
                       <Form.Group className="mb-3">
-                        <Form.Label>End Date *</Form.Label>
+                        <Form.Label>End Date </Form.Label>
                         <Form.Control
                           type="text"
                           placeholder="e.g., Present"
@@ -745,7 +745,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                   </Row>
 
-                  <Form.Label>Responsibilities *</Form.Label>
+                  <Form.Label>Responsibilities </Form.Label>
                   {exp.responsibilities.map((resp, respIndex) => (
                     <div key={respIndex} className="mb-2">
                       <div className="d-flex gap-2">
@@ -821,7 +821,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Organization *</Form.Label>
+                        <Form.Label>Organization </Form.Label>
                         <Form.Control
                           type="text"
                           value={proj.organization}
@@ -836,7 +836,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Role *</Form.Label>
+                        <Form.Label>Role </Form.Label>
                         <Form.Control
                           type="text"
                           value={proj.role}
@@ -851,7 +851,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                     <Col md={4}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Location *</Form.Label>
+                        <Form.Label>Location </Form.Label>
                         <Form.Control
                           type="text"
                           value={proj.location}
@@ -866,7 +866,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                     <Col md={4}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Start Date *</Form.Label>
+                        <Form.Label>Start Date </Form.Label>
                         <Form.Control
                           type="text"
                           value={proj.startDate}
@@ -896,7 +896,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                     </Col>
                   </Row>
 
-                  <Form.Label>Achievements *</Form.Label>
+                  <Form.Label>Achievements </Form.Label>
                   {proj.achievements.map((ach, achIndex) => (
                     <div key={achIndex} className="mb-2">
                       <div className="d-flex gap-2">
@@ -971,7 +971,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                         <Row>
                           <Col md={6}>
                             <Form.Group className="mb-3">
-                              <Form.Label>Organization *</Form.Label>
+                              <Form.Label>Organization </Form.Label>
                               <Form.Control
                                 type="text"
                                 value={act.organization}
@@ -1127,7 +1127,7 @@ const CVForm: React.FC<CVFormProps> = ({ initialData, cvType, onSubmit, onCancel
                       </Col>
                       <Col md={8}>
                         <Form.Group className="mb-3">
-                          <Form.Label>Skills (comma separated) *</Form.Label>
+                          <Form.Label>Skills (comma separated) </Form.Label>
                           <Form.Control
                             type="text"
                             value={sk.skills}

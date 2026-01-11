@@ -46,6 +46,8 @@ export const adminContactApi = {
     axios.put(`${API_URL}/contact/${id}`, { status }, { headers: getAuthHeader() }),
   delete: (id: string) =>
     axios.delete(`${API_URL}/contact/${id}`, { headers: getAuthHeader() }),
+  reply: (id: string, message: string) =>
+    axios.post(`${API_URL}/contact/${id}/reply`, { message }, { headers: getAuthHeader() }),
 };
 
 // Upload

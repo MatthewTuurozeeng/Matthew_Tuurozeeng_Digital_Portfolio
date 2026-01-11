@@ -7,21 +7,30 @@ interface EmailOptions {
   html?: string;
 }
 
-export const sendEmail = async (options: EmailOptions): Promise<void> => {
+export const sendEmail = async (options: EmailOptions): Promise<nodemailer.SentMessageInfo> => {
   // Create transporter
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT),
-    secure: false,
+    secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
     },
   });
 
+  // Verify transporter configuration
+  try {
+    await transporter.verify();
+    console.log('Email server is ready to send messages');
+  } catch (error) {
+    console.error('Email server verification failed:', error);
+    throw new Error('Email configuration error');
+  }
+
   // Email options
   const mailOptions = {
-    from: `Portfolio <${process.env.EMAIL_FROM}>`,
+    from: `Portfolio Website <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
     to: options.to,
     subject: options.subject,
     text: options.text,
@@ -29,5 +38,12 @@ export const sendEmail = async (options: EmailOptions): Promise<void> => {
   };
 
   // Send email
-  await transporter.sendMail(mailOptions);
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully:', info.messageId);
+    return info;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
 };

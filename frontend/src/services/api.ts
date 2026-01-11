@@ -127,6 +127,11 @@ export const api = {
     return response.data;
   },
 };
+export const getUnreadContactsCount = async (): Promise<number> => {
+  const res = await apiClient.get<{ count: number }>('/contacts/unread/count');
+  return res.data.count;
+};
+
 
 // Named exports
 export const getProjects = api.getProjects;

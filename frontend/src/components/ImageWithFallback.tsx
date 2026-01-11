@@ -15,24 +15,35 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   className = '',
   style = {},
 }) => {
-  const [imgSrc, setImgSrc] = useState<string>(src);
+  const [imgSrc, setImgSrc] = useState<string>(src || fallbackSrc);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [hasError, setHasError] = useState<boolean>(false); // track if error occurred
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const handleError = () => {
-    if (!hasError) {
-      // try fallback once
+    console.log('Image failed to load:', imgSrc);
+    setHasError(true);
+    setIsLoading(false);
+    if (imgSrc !== fallbackSrc) {
       setImgSrc(fallbackSrc);
-      setHasError(true);
-    } else {
-      // fallback also failed → stop loading
-      setIsLoading(false);
     }
   };
 
   const handleLoad = () => {
+    console.log('Image loaded successfully:', imgSrc);
     setIsLoading(false);
+    setHasError(false);
   };
+
+  // If src is empty or invalid, use fallback immediately
+  React.useEffect(() => {
+    if (!src || src.trim() === '') {
+      setImgSrc(fallbackSrc);
+      setIsLoading(false);
+    } else {
+      setImgSrc(src);
+      setIsLoading(true);
+    }
+  }, [src, fallbackSrc]);
 
   return (
     <div style={{ position: 'relative', ...style }}>
@@ -48,9 +59,10 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            zIndex: 1,
           }}
         >
-          <div className="spinner-border text-primary" role="status">
+          <div className="spinner-border text-primary" role="status" style={{ color: '#994545' }}>
             <span className="visually-hidden">Loading...</span>
           </div>
         </div>
@@ -61,7 +73,13 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
         className={className}
         onError={handleError}
         onLoad={handleLoad}
-        style={{ display: isLoading ? 'none' : 'block', ...style }}
+        style={{
+          display: 'block',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          ...style,
+        }}
       />
     </div>
   );

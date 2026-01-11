@@ -72,7 +72,7 @@ const seedData = async () => {
         category: 'web',
         status: 'in-progress',
         featured: true,
-        liveUrl:    'https://Matthew.portfolio.com',
+        liveUrl:    'https://portfolio.example.com',
         githubUrl: 'https://github.com/MatthewTuurozeeng/My_Portfolio_Website',
        
         order: 1,
@@ -110,7 +110,7 @@ const seedData = async () => {
         featured: true,
         order: 1,
       },
-    ]);
+    ] as any);
     console.log('Impacts created');
 
     console.log('Database seeded successfully!');

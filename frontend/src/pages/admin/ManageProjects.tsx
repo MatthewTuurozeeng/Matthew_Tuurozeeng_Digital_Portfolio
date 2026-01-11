@@ -1,5 +1,6 @@
+// Corrected ManageProjects.tsx
 import React, { useEffect, useState } from 'react';
-import { Container, Button, Table, Modal, Form, Alert } from 'react-bootstrap';
+import { Container, Button, Table, Modal, Form } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../../components/admin/Sidebar';
@@ -7,11 +8,12 @@ import FileUpload from '../../components/admin/FileUpload';
 import { adminProjectsApi } from '../../services/AdminApi';
 
 interface Project {
-  _id: string;
+  id?: string;          // <-- use id from backend
+  _id?: string;         // fallback
   title: string;
   description: string;
   technologies: string[];
-  image: string;
+  image?: string;
   screenshots?: string[];
   demoVideo?: string;
   githubUrl?: string;
@@ -44,7 +46,12 @@ const ManageProjects: React.FC = () => {
   const fetchProjects = async () => {
     try {
       const response = await adminProjectsApi.getAll();
-      setProjects(response.data);
+      // Map id from backend
+      const projectsWithId = response.data.map((p: any) => ({
+        ...p,
+        id: p.id || p._id,
+      }));
+      setProjects(projectsWithId);
     } catch (error) {
       toast.error('Failed to fetch projects');
     }
@@ -57,7 +64,7 @@ const ManageProjects: React.FC = () => {
         title: project.title,
         description: project.description,
         technologies: project.technologies.join(', '),
-        image: project.image,
+        image: project.image || '',
         screenshots: project.screenshots || [],
         demoVideo: project.demoVideo || '',
         githubUrl: project.githubUrl || '',
@@ -91,14 +98,20 @@ const ManageProjects: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (editingProject && !editingProject.id) {
+      toast.error('Cannot update project: ID is missing');
+      return;
+    }
+
     const projectData = {
       ...formData,
       technologies: formData.technologies.split(',').map((tech) => tech.trim()),
+      images: formData.image ? [formData.image] : [],
     };
 
     try {
       if (editingProject) {
-        await adminProjectsApi.update(editingProject._id, projectData);
+        await adminProjectsApi.update(editingProject.id!, projectData);
         toast.success('Project updated successfully!');
       } else {
         await adminProjectsApi.create(projectData);
@@ -108,10 +121,12 @@ const ManageProjects: React.FC = () => {
       handleCloseModal();
     } catch (error) {
       toast.error('Failed to save project');
+      console.error(error);
     }
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id?: string) => {
+    if (!id) return;
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
         await adminProjectsApi.delete(id);
@@ -145,8 +160,8 @@ const ManageProjects: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {projects.map((project) => (
-                <tr key={project._id}>
+              {projects.map((project, index) => (
+                <tr key={project.id ?? project._id ?? index}>
                   <td>{project.title}</td>
                   <td>{project.technologies.join(', ')}</td>
                   <td>{project.featured ? '⭐ Yes' : 'No'}</td>
@@ -162,7 +177,7 @@ const ManageProjects: React.FC = () => {
                     <Button
                       size="sm"
                       variant="danger"
-                      onClick={() => handleDelete(project._id)}
+                      onClick={() => handleDelete(project.id ?? project._id)}
                     >
                       Delete
                     </Button>

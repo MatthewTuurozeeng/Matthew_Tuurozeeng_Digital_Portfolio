@@ -43,7 +43,7 @@ const Sidebar: React.FC = () => {
           className={`text-white px-4 py-3 ${isActive('/admin/projects') ? 'bg-dark' : ''}`}
           style={{ borderLeft: isActive('/admin/projects') ? '4px solid #F5C9AE' : 'none' }}
         >
-          💼 Manage Projects
+          💼 Projects
         </Nav.Link>
         <Nav.Link
           as={Link}
@@ -51,7 +51,7 @@ const Sidebar: React.FC = () => {
           className={`text-white px-4 py-3 ${isActive('/admin/impact') ? 'bg-dark' : ''}`}
           style={{ borderLeft: isActive('/admin/impact') ? '4px solid #F5C9AE' : 'none' }}
         >
-          🌟 Manage Impact
+          🌟 Impact
         </Nav.Link>
 
         <Nav.Link
@@ -60,7 +60,7 @@ const Sidebar: React.FC = () => {
           className={`text-white px-4 py-3 ${isActive('/admin/cv') ? 'bg-dark' : ''}`}
           style={{ borderLeft: isActive('/admin/cv') ? '4px solid #F5C9AE' : 'none' }}
         >
-          📄 Manage Master CV & Resume
+          📄 Master CV & Resume
         </Nav.Link>
         <Nav.Link
           as={Link}

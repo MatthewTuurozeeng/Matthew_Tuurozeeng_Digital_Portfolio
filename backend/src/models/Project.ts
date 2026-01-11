@@ -1,11 +1,12 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IProject extends Document {
+  id?: string; // optional, for frontend mapping
   title: string;
   description: string;
   longDescription?: string;
   technologies: string[];
-  category: string;
+  category: 'web' | 'mobile' | 'desktop' | 'ai-ml' | 'data-science' | 'other';
   status: 'completed' | 'in-progress' | 'planned';
   featured: boolean;
   images: string[];
@@ -28,22 +29,10 @@ export interface IProject extends Document {
 
 const projectSchema = new Schema<IProject>(
   {
-    title: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    longDescription: {
-      type: String,
-    },
-    technologies: {
-      type: [String],
-      required: true,
-    },
+    title: { type: String, required: true, trim: true },
+    description: { type: String, required: true },
+    longDescription: { type: String },
+    technologies: { type: [String], required: true },
     category: {
       type: String,
       required: true,
@@ -54,11 +43,8 @@ const projectSchema = new Schema<IProject>(
       enum: ['completed', 'in-progress', 'planned'],
       default: 'completed',
     },
-    featured: {
-      type: Boolean,
-      default: false,
-    },
-    images: [String],
+    featured: { type: Boolean, default: false },
+    images: { type: [String], default: [] }, // array of URLs
     thumbnailImage: String,
     liveUrl: String,
     githubUrl: String,
@@ -71,13 +57,21 @@ const projectSchema = new Schema<IProject>(
     impact: String,
     teamSize: Number,
     role: String,
-    order: {
-      type: Number,
-      default: 0,
-    },
+    order: { type: Number, default: 0 },
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true, // include virtuals in JSON output
+      transform: function (doc, ret) {
+        // Use a type assertion to avoid TypeScript 'delete' operand errors
+        if (ret && (ret as any)._id) {
+          ret.id = (ret as any)._id.toString(); // expose _id as id
+        }
+        delete (ret as any)._id; // optional: remove _id
+        delete (ret as any).__v; // remove version key
+      },
+    },
   }
 );
 

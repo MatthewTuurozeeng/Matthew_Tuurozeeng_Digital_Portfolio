@@ -161,4 +161,5 @@ const profileSchema = new Schema<IProfile>(
   }
 );
 
+
 export default mongoose.model<IProfile>('Profile', profileSchema);
