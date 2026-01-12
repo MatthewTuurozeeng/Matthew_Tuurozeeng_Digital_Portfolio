@@ -81,32 +81,40 @@ const ManageImpact: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const impactData = {
-      ...formData,
-      order: Number(formData.order) || 0, // prevents NaN
-      image: formData.image || undefined, //  backend-safe
-      achievements: formData.achievements
-        .split('\n')
-        .map(a => a.trim())
-        .filter(Boolean),
-    };
+  // Validate required fields
+  if (!formData.title || !formData.period || !formData.description || !formData.achievements) {
+    toast.error('Please fill in all required fields');
+    return;
+  }
 
-    try {
-      if (editingImpact) {
-        await adminImpactApi.update(editingImpact._id, impactData);
-        toast.success('Impact initiative updated successfully!');
-      } else {
-        await adminImpactApi.create(impactData);
-        toast.success('Impact initiative created successfully!');
-      }
-      fetchImpacts();
-      handleCloseModal();
-    } catch (error) {
-      toast.error('Failed to save impact initiative');
-    }
+  const impactData = {
+    ...formData,
+    achievements: formData.achievements
+      .split('\n')
+      .map((achievement) => achievement.trim())
+      .filter((achievement) => achievement.length > 0),
   };
+
+  console.log('Submitting impact data:', impactData);
+
+  try {
+    if (editingImpact) {
+      await adminImpactApi.update(editingImpact._id, impactData);
+      toast.success('Impact initiative updated successfully!');
+    } else {
+      await adminImpactApi.create(impactData);
+      toast.success('Impact initiative created successfully!');
+    }
+    fetchImpacts();
+    handleCloseModal();
+  } catch (error: any) {
+    console.error('Failed to save impact:', error);
+    const errorMessage = error.response?.data?.message || error.message || 'Failed to save impact initiative';
+    toast.error(errorMessage);
+  }
+};
 
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this impact initiative?')) {

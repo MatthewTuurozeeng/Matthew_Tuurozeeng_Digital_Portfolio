@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import connectDB from './config/database';
 import { errorHandler } from './middleware/ErrorHandler';
-import cvRoutes from './routes/CVroute';
+
 
 // Load environment variables
 dotenv.config();
@@ -16,6 +16,8 @@ import impactRoutes from './routes/ImpactRoute';
 import profileRoutes from './routes/ProfileRoute';
 import contactRoutes from './routes/ContactRoute';
 import uploadRoutes from './routes/UploadRoute';
+import cvRoutes from './routes/CVroute';
+
 
 // Initialize express app
 const app: Application = express();

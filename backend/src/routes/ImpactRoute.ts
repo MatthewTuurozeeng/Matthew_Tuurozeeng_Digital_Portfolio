@@ -1,22 +1,20 @@
 import express from 'express';
-import {
+const router = express.Router();
+
+import { authenticateToken } from '../middleware/Auth';
+
+import { 
   getAllImpacts,
   getImpactById,
   createImpact,
   updateImpact,
-  deleteImpact,
+  deleteImpact 
 } from '../controllers/ImpactController';
-import { authenticateToken, isAdmin } from '../middleware/Auth';
 
-const router = express.Router();
-
-// Public routes
 router.get('/', getAllImpacts);
+router.post('/', authenticateToken, createImpact);
 router.get('/:id', getImpactById);
-
-// Protected admin routes
-router.post('/', authenticateToken, isAdmin, createImpact);
-router.put('/:id', authenticateToken, isAdmin, updateImpact);
-router.delete('/:id', authenticateToken, isAdmin, deleteImpact);
+router.put('/:id', authenticateToken, updateImpact);
+router.delete('/:id', authenticateToken, deleteImpact);
 
 export default router;

@@ -96,34 +96,42 @@ const ManageProjects: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (editingProject && !editingProject.id) {
-      toast.error('Cannot update project: ID is missing');
-      return;
-    }
+  // Validate required fields
+  if (!formData.title || !formData.description || !formData.technologies || !formData.image) {
+    toast.error('Please fill in all required fields');
+    return;
+  }
 
-    const projectData = {
-      ...formData,
-      technologies: formData.technologies.split(',').map((tech) => tech.trim()),
-      images: formData.image ? [formData.image] : [],
-    };
-
-    try {
-      if (editingProject) {
-        await adminProjectsApi.update(editingProject.id!, projectData);
-        toast.success('Project updated successfully!');
-      } else {
-        await adminProjectsApi.create(projectData);
-        toast.success('Project created successfully!');
-      }
-      fetchProjects();
-      handleCloseModal();
-    } catch (error) {
-      toast.error('Failed to save project');
-      console.error(error);
-    }
+  const projectData = {
+    ...formData,
+    technologies: formData.technologies.split(',').map((tech) => tech.trim()).filter(Boolean),
   };
+
+  console.log('Submitting project data:', projectData);
+
+  try {
+    if (editingProject) {
+      const id = editingProject.id || editingProject._id;
+      if (!id) {
+        toast.error('Project ID is missing, cannot update project.');
+      } else {
+        await adminProjectsApi.update(id, projectData);
+        toast.success('Project updated successfully!');
+      }
+    } else {
+      await adminProjectsApi.create(projectData);
+      toast.success('Project created successfully!');
+    }
+    fetchProjects();
+    handleCloseModal();
+  } catch (error: any) {
+    console.error('Failed to save project:', error);
+    const errorMessage = error.response?.data?.message || error.message || 'Failed to save project';
+    toast.error(errorMessage);
+  }
+};
 
   const handleDelete = async (id?: string) => {
     if (!id) return;
