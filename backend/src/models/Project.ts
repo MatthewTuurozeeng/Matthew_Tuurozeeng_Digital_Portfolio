@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IProject extends Document {
-  id?: string; // optional, for frontend mapping
+  id?: string; //for frontend mapping
   title: string;
   description: string;
   longDescription?: string;
@@ -64,18 +64,18 @@ const projectSchema = new Schema<IProject>(
     toJSON: {
       virtuals: true, // include virtuals in JSON output
       transform: function (doc, ret) {
-        // Use a type assertion to avoid TypeScript 'delete' operand errors
+        // type assertion to avoid TypeScript 'delete' operand errors
         if (ret && (ret as any)._id) {
-          ret.id = (ret as any)._id.toString(); // expose _id as id
+          ret.id = (ret as any)._id.toString(); 
         }
-        delete (ret as any)._id; // optional: remove _id
-        delete (ret as any).__v; // remove version key
+        delete (ret as any)._id; 
+        delete (ret as any).__v;
       },
     },
   }
 );
 
-// Index for sorting
+// index for sorting
 projectSchema.index({ order: 1, createdAt: -1 });
 
 export default mongoose.model<IProject>('Project', projectSchema);

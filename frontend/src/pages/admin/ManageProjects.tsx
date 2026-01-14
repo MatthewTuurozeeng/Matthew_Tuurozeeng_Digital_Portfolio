@@ -8,8 +8,8 @@ import FileUpload from '../../components/admin/FileUpload';
 import { adminProjectsApi } from '../../services/AdminApi';
 
 interface Project {
-  id?: string;          // <-- use id from backend
-  _id?: string;         // fallback
+  id?: string;
+  _id?: string;
   title: string;
   description: string;
   technologies: string[];
@@ -20,6 +20,7 @@ interface Project {
   liveUrl?: string;
   featured: boolean;
   order: number;
+  category?: string;
 }
 
 const ManageProjects: React.FC = () => {
@@ -37,6 +38,7 @@ const ManageProjects: React.FC = () => {
     liveUrl: '',
     featured: false,
     order: 0,
+    category: '',
   });
 
   useEffect(() => {
@@ -71,6 +73,7 @@ const ManageProjects: React.FC = () => {
         liveUrl: project.liveUrl || '',
         featured: project.featured,
         order: project.order,
+        category: project.category || '',
       });
     } else {
       setEditingProject(null);
@@ -85,6 +88,7 @@ const ManageProjects: React.FC = () => {
         liveUrl: '',
         featured: false,
         order: 0,
+        category:  '',
       });
     }
     setShowModal(true);
@@ -99,7 +103,7 @@ const ManageProjects: React.FC = () => {
   e.preventDefault();
 
   // Validate required fields
-  if (!formData.title || !formData.description || !formData.technologies || !formData.image) {
+  if (!formData.title || !formData.description || !formData.technologies || !formData.image || !formData.category) {
     toast.error('Please fill in all required fields');
     return;
   }
@@ -213,7 +217,7 @@ const ManageProjects: React.FC = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label>Description *</Form.Label>
+                  <Form.Label>Description </Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={3}
@@ -276,6 +280,16 @@ const ManageProjects: React.FC = () => {
                     type="number"
                     value={formData.order}
                     onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) })}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Category </Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="e.g. web, mobile, data-science"
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    required
                   />
                 </Form.Group>
 
