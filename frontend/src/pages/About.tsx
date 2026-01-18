@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import ProfileImage from '../assets/images/profileImage/profile-photo.jpg';
-
+import { PROFILE_IMAGE } from "../constants/media";
 
 interface Skill {
   category: string;
@@ -61,7 +60,7 @@ const About: React.FC = () => {
         {/* Profile Image */}
         <Col lg={5} className="text-center mb-4 mb-lg-0">
           <img
-            src={ProfileImage}
+            src={PROFILE_IMAGE}
             alt="Matthew Tuurozeeng"
             className="about-profile-image"
           />

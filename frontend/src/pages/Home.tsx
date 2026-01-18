@@ -82,21 +82,21 @@ const Home: React.FC = () => {
         <Row className="text-center">
           <Col md={4} className="mb-4">
             <div className="p-4">
-              <div style={{ fontSize: '3rem' }}>💻</div>
+              <div style={{ fontSize: '6rem' }}>💻</div>
               <h4 className="mt-3">Full-Stack Development</h4>
               <p>Building scalable web applications with modern technologies</p>
             </div>
           </Col>
           <Col md={4} className="mb-4">
             <div className="p-4">
-              <div style={{ fontSize: '3rem' }}>🎓</div>
+              <div style={{ fontSize: '6rem' }}>🎓</div>
               <h4 className="mt-3">Continuous Learning</h4>
               <p>Passionate about staying current with industry trends</p>
             </div>
           </Col>
           <Col md={4} className="mb-4">
             <div className="p-4">
-              <div style={{ fontSize: '3rem' }}>🚀</div>
+              <div style={{ fontSize: '6rem' }}>🚀</div>
               <h4 className="mt-3">Innovation</h4>
               <p>Creating solutions that make a real-world impact</p>
             </div>

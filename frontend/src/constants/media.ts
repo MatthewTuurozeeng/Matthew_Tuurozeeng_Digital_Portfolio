@@ -1,12 +1,7 @@
-// Profile and Background Images
-// src/constants/media.ts
 
-import HeroBackground from '../assets/images/backgroundImage/Hero-Imag.svg';
-import ProfileImage from '../assets/images/profileImage/profile-photo.jpg';
 
-export const HERO_BACKGROUND = HeroBackground;
-export const PROFILE_IMAGE = ProfileImage;
-
+export const HERO_BACKGROUND = "/assets/images/backgroundImage/Hero-Imag.svg";
+export const PROFILE_IMAGE = "/assets/images/profileImage/profile-photo.jpg";
 
 // Project Images (update these with your actual project image names)
 export const PROJECT_IMAGES = {

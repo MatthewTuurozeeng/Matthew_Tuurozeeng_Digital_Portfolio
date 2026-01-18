@@ -3,6 +3,8 @@ import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import '../styles/cv.css';
 
 const CV: React.FC = () => {
+
+  const resumePath = '/documents/Matthew_Tuurozeeng_Resume.pdf';
   return (
     <Container className="py-5">
       <div className="text-center mb-4">
@@ -18,15 +20,15 @@ const CV: React.FC = () => {
               document.getElementById('cv-viewer')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            📋 View Master CV
+             View Master CV
           </Button>
           <a
-            href="/documents/Matthew_Tuurozeeng_Resume.pdf"
+            href={resumePath}
             download
             className="btn btn-secondary-custom btn-lg d-inline-flex align-items-center justify-content-center"
             role="button"
           >
-            📥 Download Resume (PDF)
+            Download Resume (PDF)
           </a>
         </div>
       </div>
@@ -52,7 +54,7 @@ const CV: React.FC = () => {
                   document.getElementById('cv-viewer')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                 👁️ View Below
+                 View Below
               </Button>
             </Card.Body>
           </Card>
@@ -68,13 +70,13 @@ const CV: React.FC = () => {
               </p>
               <div className="d-flex gap-2 flex-wrap">
                 <Button 
-                  href="/documents/Matthew_Tuurozeeng_Resume.pdf" 
+                  href={resumePath} 
                   target="_blank"
                   variant="outline-primary"
                   className="btn-primary-custom btn-outline-custom"
                   rel="noopener noreferrer"
                 >
-                  👁️ View PDF
+                   View PDF
                 </Button>
                 <a
                   href="/documents/Matthew_Tuurozeeng_Resume.pdf"
@@ -82,7 +84,7 @@ const CV: React.FC = () => {
                   className="btn btn-secondary-custom"
                   role="button"
                 >
-                  📥 Download
+                   Download
                 </a>
               </div>
             </Card.Body>
@@ -95,7 +97,7 @@ const CV: React.FC = () => {
         <Card className="shadow-lg">
           <Card.Header style={{ backgroundColor: '#994545', color: 'white' }}>
             <div className="d-flex justify-content-between align-items-center">
-              <h3 className="mb-0">Master CV - Matthew Tuurozeeng</h3>
+              <h3 className="mb-0"> Matthew Tuurozeeng - Master CV </h3>
               <small className="text-white-50">View Only</small>
             </div>
           </Card.Header>
@@ -210,11 +212,258 @@ const CV: React.FC = () => {
                   </div>
                   <div className="right">Apr 2024 - May 2024</div>
                 </div>
+
               </section>
+              <div className="entry">
+                  <div className="left">
+                    <strong>African Leadership Academy</strong> - South Africa <br />
+                    <b>Public Policy Research Intern</b>
+                    <ul>
+                      <li>
+                        Developed a comprehensive policy framework addressing corruption in African governance,
+                        focusing on transparency, legal reforms, and accountability
+                      </li>
+                      <li>
+                        Authored a detailed 3-page policy recommendation document proposing three actionable
+                        strategies to reduce public sector corruption
+                      </li>
+                      <li>
+                        Presented policy recommendations to a panel of policy experts, advocating for practical
+                        implementation to ensure good governance
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">May 2024 - Jul 2024</div>
+                </div>
+
+                <div className="entry">
+                  <div className="left">
+                    <strong>O-Vanni Foods</strong> - Nigeria <br />
+                    <b>Partnerships & Business Development Volunteer</b>
+                    <ul>
+                      <li>
+                        Managed and nurtured relationships with 3+ strategic partners supporting business growth
+                      </li>
+                      <li>
+                        Assisted in developing and executing partnership strategies, contributing to a 20% increase
+                        in partner engagement and new business opportunities
+                      </li>
+                      <li>
+                        Conducted research to identify 5+ potential partnership opportunities, leading to two new
+                        partnership agreements
+                      </li>
+                      <li>
+                        Supported cross-functional collaboration by facilitating communication between internal
+                        teams and external stakeholders
+                      </li>
+                    </ul>
+                  </div>
+                <div className="right">Jun 2024 - Oct 2024</div>
+              </div>
+
+              <div className="entry">
+                <div className="left">
+                  <strong>Dipa (Business Start-up)</strong> - Ashesi University <br />
+                  <b>Researcher & Chief Operations Officer</b>
+                  <ul>
+                    <li>
+                      Led ethnographic research with 30+ market women to identify key drivers of unhealthy eating
+                      habits and inform solution design
+                    </li>
+                    <li>
+                      Conducted a market feasibility study analysing 50+ survey responses to validate demand and
+                      refine product features
+                    </li>
+                    <li>
+                      Oversaw development and pilot testing of a minimum viable product, achieving 85% positive
+                      user feedback and strong indicators for market adoption
+                    </li>
+                  </ul>
+                </div>
+                <div className="right">Jan 2024 - Sep 2024</div>
+              </div>
+
+              <div className="entry">
+                <div className="left">
+                  <strong>Mr. Dan Farming & Rearing Venture</strong> - Wa, Ghana <br />
+                  <b>Agricultural Operations Manager</b>
+                  <ul>
+                    <li>
+                      Cultivated and managed tiger nuts and other grains, contributing 45% of annual farm revenue
+                    </li>
+                    <li>
+                      Applied improved agricultural techniques in cultivation, fertiliser application, weeding,
+                      and harvesting, increasing crop yield by 30%
+                    </li>
+                    <li>
+                      Oversaw livestock operations, successfully rearing goats, sheep, poultry, and guinea fowls,
+                      contributing approximately 4% to overall income
+                    </li>
+                  </ul>
+                </div>
+                <div className="right">2013 - 2024</div>
+              </div>
+
+              <div className="entry">
+                <div className="left">
+                <strong>Machris Christian Academy</strong> -  Ghana <br />
+                <b>Tutor & Student Mentor</b>
+                <ul>
+                  <li>
+                    Tutored Mathematics and Integrated Science, contributing to a 20% improvement in examination
+                    performance for approximately 60% of students
+                  </li>
+                  <li>
+                    Mentored and coached over 50 students, improving academic discipline and learning habits
+                  </li>
+                  <li>
+                    Organised remedial classes to prepare students for the BECE, improving performance for over
+                    30 students
+                  </li>
+                </ul>
+              </div>
+              <div className="right">Mar 2013 - Sep 2020</div>
+            </div>
+
+            <section>
+            <h2>FELLOWSHIPS & LEADERSHIP PROGRAMS</h2>
+
+            {/* Jim Leech Mastercard Foundation Fellowship */}
+            <div className="entry">
+              <div className="left">
+                <strong>Jim Leech Mastercard Foundation Fellowship</strong> - Ghana Chapter <br />
+                <b>Fellow</b>
+                <ul>
+                  <li>
+                    Selected to participate in the Explore Entrepreneurship phase, running from mid-January to
+                    March, focused on early-stage venture development
+                  </li>
+                  <li>
+                    Completing curated online entrepreneurship courses and the first 11 steps of the
+                    Disciplined Entrepreneurship framework workbook
+                  </li>
+                  <li>
+                    Engaging in in-person activities including market research, prototyping, testing, and
+                    networking to validate and scale business ideas
+                  </li>
+                  <li>
+                    Demonstrating entrepreneurial commitment by progressing through key milestones over
+                    several months with mentorship and structured support
+                  </li>
+                </ul>
+              </div>
+              <div className="right">Jan 2026 - Present</div>
+            </div>
+
+            {/* For Youth, By Youth Movement */}
+            <div className="entry">
+              <div className="left">
+                <strong>Talloires Network of Engaged Universities</strong> - Medford <br />
+                <b>For Youth, By Youth Movement (FYBY), Inaugural Cohort Member</b>
+                <ul>
+                  <li>
+                    Selected as one of 50 youth leaders worldwide from a highly competitive applicant pool for
+                    the inaugural FYBY movement
+                  </li>
+                  <li>
+                    Participating in a three-year global fellowship focused on conscious leadership, youth-led
+                    participatory action research, ethical AI, and storytelling
+                  </li>
+                  <li>
+                    Collaborating with peers from 18+ countries to drive community transformation and foster
+                    global solidarity
+                  </li>
+                  <li>
+                    Receiving mentorship, wellness support, and leadership training to design impactful,
+                    youth-driven initiatives
+                  </li>
+                </ul>
+              </div>
+              <div className="right"> Mar 2025 - Present</div>
+            </div>
+
+            {/* Millennium Fellowship */}
+            <div className="entry">
+              <div className="left">
+                <strong>United Nations Academic Impact & Millennium Campus Network</strong> - Boston <br />
+                <b>Millennium Fellow (Class of 2025)</b>
+                <ul>
+                  <li>
+                    Selected as one of 4,000 fellows globally from over 60,000 applicants across 7,500+
+                    campuses (approximately 4% acceptance rate)
+                  </li>
+                  <li>
+                    Engaged in global leadership development and community- and campus-based social impact
+                    projects advancing the UN Sustainable Development Goals (SDGs)
+                  </li>
+                  <li>
+                    Collaborated with peers across 290+ campuses in 20+ countries to design and implement
+                    initiatives that drive measurable community impact
+                  </li>
+                </ul>
+              </div>
+              <div className="right">Aug 2025 - Nov 2025</div>
+            </div>
+
+          </section>
+
 
               {/* Projects Section */}
               <section>
                 <h2>PROJECTS AND RESEARCH</h2>
+                <div className="entry">
+                  <div className="left">
+                    <strong>Machris Christian Academy</strong> - Nadowli, Ghana <br />
+                    <b>Full-Stack Web Developer (Third Year Web Technologies Project)</b>
+                    <ul>
+                      <li>
+                        Designed and developed a modern, responsive web application serving as the school's digital
+                        presence and admission management system
+                      </li>
+                      <li>
+                        Built role-based dashboards for administrators and teachers with secure JWT-based
+                        authentication and access control
+                      </li>
+                      <li>
+                        Developed RESTful APIs using Express.js and integrated a MySQL database for reliable,
+                        database-driven application and enquiry management
+                      </li>
+                      <li>
+                        Delivered a clean, intuitive UI using React, Bootstrap, and Vite, ensuring cross-device
+                        responsiveness and usability
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Nov 2025 - Dec 2025</div>
+                </div>
+
+                <div className="entry">
+                  <div className="left">
+                    <strong>For Youth By Youth (FYBY) Platform</strong> <br />
+                    <b>Project Coordinator & Frontend Developer</b>
+                    <ul>
+                      <li>
+                        Coordinated a five-member development team to build a collaborative web platform empowering
+                        young people to connect, volunteer, and lead community-driven social impact initiatives
+                      </li>
+                      <li>
+                        Led technical decision-making, including tech stack selection and overall platform
+                        architecture, ensuring scalability and performance
+                      </li>
+                      <li>
+                        Implemented core platform features such as blogs, event management, volunteer matching, and
+                        community engagement tools
+                      </li>
+                      <li>
+                        Managed deployment and optimization processes, ensuring responsive design, fast load times,
+                        and SEO-friendly routing
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Oct 2025 - Nov 2025</div>
+                </div>
+
+
                 <div className="entry">
                   <div className="left">
                     <strong>Africa Leadership Academy</strong> - South Africa <br />
@@ -244,45 +493,106 @@ const CV: React.FC = () => {
 
               {/* Co-curricular Activities */}
               <section>
-                <h2>CO-CURRICULAR ACTIVITIES</h2>
+                <h2>COMMUNITY ENGAGEMENT & SERVICE</h2>
                 <div className="entry">
                   <div className="left">
-                    <strong>Kingdom Christian Fellowship</strong> - Ashesi University<br />
-                    <b>Member, Technical Team</b>
+                    <strong>Computing4All Initiative</strong> <br />
+                    <b>Founder & Volunteer Instructor</b>
                     <ul>
-                      <li>Support worship services through skilled drumming to enhance musical quality and congregation engagement</li>
-                      <li>Collaborate with the technical team to ensure smooth coordination of church events</li>
+                      <li>
+                        Designed and delivered a community-based digital literacy program to equip school children
+                        with foundational computer skills and confidence in technology
+                      </li>
+                      <li>
+                        Engaged and mentored 25+ students through hands-on learning sessions, dedicating two-hour
+                        classes three times a week using personal resources
+                      </li>
+                      <li>
+                        Developed practical lessons covering basic computer use, digital literacy, and safe
+                        technology practices to bridge access gaps for underserved learners
+                      </li>
                     </ul>
                   </div>
-                  <div className="right">Jan 2024 - Present</div>
+                  <div className="right">Dec 2025 - Jan 2026</div>
                 </div>
 
-                <div className="entry">
-                  <div className="left">
-                    <strong>Investment Club</strong> - Ashesi University <br />
-                    <b>Active Member</b>
-                    <ul>
-                      <li>Participate in discussions and workshops on investment strategies and financial literacy</li>
-                      <li>Contribute to peer learning by sharing insights and engaging in group analysis of activities</li>
-                    </ul>
+                  <div className="entry">
+                    <div className="left">
+                      <strong>Kingdom Christian Fellowship</strong> - Ashesi University <br />
+                      <b>Member, Technical Team</b>
+                      <ul>
+                        <li>
+                          Supported worship services through skilled drumming to enhance musical quality and
+                          congregation engagement
+                        </li>
+                        <li>
+                          Collaborated with the technical team to ensure smooth coordination of church events and
+                          programs
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="right">Jan 2024 - Present</div>
                   </div>
-                  <div className="right">Jan 2024 - Present</div>
-                </div>
+
+                  <div className="entry">
+                    <div className="left">
+                      <strong>Investment Club</strong> - Ashesi University <br />
+                      <b>Active Member</b>
+                      <ul>
+                        <li>
+                          Participated in discussions and workshops on investment strategies and financial literacy
+                        </li>
+                        <li>
+                          Contributed to peer learning through group analysis and collaborative discussions
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="right">Jan 2024 - Present</div>
+                  </div>
               </section>
+
 
               {/* Skills Section */}
               <section>
                 <h2>SKILLS</h2>
                 <ul>
-                  <li><strong>Programming & Web Development:</strong> HTML, CSS, Javascript, React, Next.js, Python, Rasa, R, Java, MySQL</li>
-                  <li><strong>Data Science & AI:</strong> Machine Learning, Natural Language Processing, chatbot deployment and integration</li>
-                  <li><strong>Data Visualisation & Tools:</strong> Power BI, Matplotlib, Streamlit</li>
-                  <li><strong>Business & Management:</strong> Business development, financial analysis, operations management</li>
-                  <li><strong>Productivity Tools:</strong> Microsoft Office Suite (Word, PowerPoint, Excel, Outlook)</li>
-                  <li><strong>Research & storytelling:</strong> Youth-led participatory action research, ethical AI, Cross-cultural collaboration, Conscious Leadership, Communication, problem-solving</li>
-                  <li><strong>Languages:</strong> English (Fluent), Dagaare (Fluent)</li>
+                  <li>
+                    <strong>Programming & Web Development:</strong> HTML, CSS, JavaScript, React, Next.js, Python,
+                    Java, R
+                  </li>
+                  <li>
+                    <strong>Backend & Databases:</strong> Node.js, Express.js, RESTful APIs, JWT Authentication,
+                    MySQL, MySQL2, Cloudinary
+                  </li>
+                  <li>
+                    <strong>Data Science & AI:</strong> Machine Learning, Natural Language Processing, Rasa,
+                    chatbot development and deployment
+                  </li>
+                  <li>
+                    <strong>Data Visualisation & Analytics:</strong> Power BI, Matplotlib, Streamlit
+                  </li>
+                  <li>
+                    <strong>Frontend & Tooling:</strong> Vite, Bootstrap, React Bootstrap, React Router, Axios,
+                    React Hook Form
+                  </li>
+                  <li>
+                    <strong>Business & Operations:</strong> Business development, financial analysis, operations
+                    management, partnership strategy
+                  </li>
+                  <li>
+                    <strong>Research & Engagement:</strong> Youth-led participatory action research, ethical AI,
+                    cross-cultural collaboration, storytelling, communication, problem-solving
+                  </li>
+                  <li>
+                    <strong>Productivity & Version Control:</strong> Microsoft Office Suite (Word, Excel,
+                    PowerPoint, Outlook), Git, GitHub
+                  </li>
+                  <li>
+                    <strong>Languages:</strong> English (Fluent), Dagaare (Fluent)
+                  </li>
                 </ul>
               </section>
+
 
               {/* References Section */}
               <section>
@@ -297,7 +607,7 @@ const CV: React.FC = () => {
           </Card.Body>
           <Card.Footer className="text-center bg-light">
             <small className="text-muted">
-              💡 <strong>Tip:</strong> For a downloadable version, please use the tailored resume above.
+               <strong>Tip:</strong> For a downloadable version, please use the tailored resume above.
             </small>
           </Card.Footer>
         </Card>
@@ -312,7 +622,7 @@ const CV: React.FC = () => {
             className="btn btn-primary-custom"
             role="button"
           >
-            📥 Download Resume
+            Download Resume
           </a>
           <Button 
             href="mailto:tuurozeeng.matthew@ashesi.edu.gh?subject=Job Opportunity&body=Hi Matthew, I reviewed your CV and would like to discuss..." 
