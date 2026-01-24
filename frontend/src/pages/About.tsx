@@ -70,16 +70,34 @@ const About: React.FC = () => {
         <Col lg={7}>
           <h3 style={{ color: '#994545' }}>Background</h3>
           <p className="lead">
-            I am a dedicated Computer Science student with a passion for building innovative 
-            software solutions. My journey in technology began with curiosity and has evolved 
-            into a commitment to creating meaningful applications that solve real-world problems.
+            I am Matthew Tuurozeeng, a Computer Science student at Ashesi University, born and raised in Ghana, with a strong interest in using 
+            technology, entrepreneurship, and community-driven solutions to address real-world problems. 
+            My journey into tech began with curiosity and has grown into a commitment to building impactful, 
+            scalable systems that create social and economic value.
           </p>
           <p>
-            Through academic projects and personal initiatives, I have developed strong skills 
-            in full-stack development, algorithm design, and system architecture. I thrive in 
-            collaborative environments and enjoy tackling complex challenges.
+            As a Computer Science student, I worked on several academic and personal projects that strengthened 
+            my foundation in full-stack development, algorithms, and system design. Beyond the classroom, I have 
+            been actively involved in leadership and innovation fellowships, including the Jim Seech Mastercard 
+            Foundation Fellowship on Entrepreneurship (Ghana Chapter) and the Millennium Fellowship, Class of 2025, 
+            where I collaborated with other young leaders to design solutions aligned with the UN Sustainable 
+            Development Goals.
+          </p>
+          <p>
+            I am the Founder and CEO of <strong>Computing4All</strong>, a youth-led initiative focused on teaching 
+            basic computing and digital skills to school children in underserved communities, with the aim of 
+            bridging the digital divide. I am also the Co-founder of <strong>Sensorba Ltd</strong>, an agribusiness 
+            working to formalize and add value to tiger nut production in Ghana's Upper West Region by improving 
+            production practices, market access, and value addition.
+          </p>
+          <p>
+            Through these experiences, I have developed strong skills in problem-solving, collaboration, and 
+            leadership, alongside my technical expertise. I thrive in environments that challenge me to learn, 
+            innovate, and contribute meaningfully, and I am motivated by opportunities that sit at the intersection 
+            of technology, entrepreneurship, and social impact.
           </p>
         </Col>
+
       </Row>
 
       

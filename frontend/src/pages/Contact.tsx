@@ -113,7 +113,7 @@ const Contact: React.FC = () => {
                   <Form.Label>Email </Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="your.email@example.com"
+                    placeholder="email@example.com"
                     {...register('email', {
                       required: 'Email is required',
                       pattern: {
