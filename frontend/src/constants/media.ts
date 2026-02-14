@@ -5,9 +5,10 @@ export const PROFILE_IMAGE = "/assets/images/profileImage/profile-photo.jpg";
 
 // Project Images (update these with your actual project image names)
 export const PROJECT_IMAGES = {
-  project1: '/images/projects/ecommerce-platform.jpg',
-  project2: '/images/projects/ml-model.jpg',
-  project3: '/images/projects/mobile-app.jpg',
+
+  project1: '/images/projectImages/Personal_portfolio.png',
+  project2: '/images/projectImages/School_Website.png',
+
 };
 
 // Project Videos
