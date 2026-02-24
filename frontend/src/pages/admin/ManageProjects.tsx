@@ -1,6 +1,5 @@
-// Corrected ManageProjects.tsx
 import React, { useEffect, useState } from 'react';
-import { Container, Button, Table, Modal, Form } from 'react-bootstrap';
+import { Container, Button, Table, Modal, Form, Badge, Row, Col } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../../components/admin/Sidebar';
@@ -13,15 +12,22 @@ interface Project {
   title: string;
   description: string;
   technologies: string[];
+  category: string;
   image?: string;
+  images?: string[];
   screenshots?: string[];
   demoVideo?: string;
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;
+  published: boolean;
   order: number;
-  category?: string;
+  status?: string;
 }
+
+// must match backend schema enum values (lowercase)
+const CATEGORY_OPTIONS = ['web', 'mobile', 'desktop', 'ai-ml', 'data-science', 'other'];
+const STATUS_OPTIONS = ['completed', 'in-progress', 'planned'];
 
 const ManageProjects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -31,14 +37,16 @@ const ManageProjects: React.FC = () => {
     title: '',
     description: '',
     technologies: '',
+    category: 'web',
+    status: 'completed',
     image: '',
     screenshots: [] as string[],
     demoVideo: '',
     githubUrl: '',
     liveUrl: '',
     featured: false,
+    published: false,
     order: 0,
-    category: '',
   });
 
   useEffect(() => {
@@ -47,8 +55,8 @@ const ManageProjects: React.FC = () => {
 
   const fetchProjects = async () => {
     try {
+      // pass ?all=true so admin sees published AND unpublished
       const response = await adminProjectsApi.getAll();
-      // Map id from backend
       const projectsWithId = response.data.map((p: any) => ({
         ...p,
         id: p.id || p._id,
@@ -66,29 +74,25 @@ const ManageProjects: React.FC = () => {
         title: project.title,
         description: project.description,
         technologies: project.technologies.join(', '),
-        image: project.image || '',
+        category: project.category || 'web',
+        status: project.status || 'completed',
+        image: project.image || (project.images && project.images[0]) || '',
         screenshots: project.screenshots || [],
         demoVideo: project.demoVideo || '',
         githubUrl: project.githubUrl || '',
         liveUrl: project.liveUrl || '',
         featured: project.featured,
+        published: project.published ?? false,
         order: project.order,
-        category: project.category || '',
       });
     } else {
       setEditingProject(null);
       setFormData({
-        title: '',
-        description: '',
-        technologies: '',
-        image: '',
-        screenshots: [],
-        demoVideo: '',
-        githubUrl: '',
-        liveUrl: '',
-        featured: false,
-        order: 0,
-        category:  '',
+        title: '', description: '', technologies: '',
+        category: 'web', status: 'completed',
+        image: '', screenshots: [], demoVideo: '',
+        githubUrl: '', liveUrl: '',
+        featured: false, published: false, order: 0,
       });
     }
     setShowModal(true);
@@ -100,42 +104,41 @@ const ManageProjects: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Validate required fields
-  if (!formData.title || !formData.description || !formData.technologies || !formData.image || !formData.category) {
-    toast.error('Please fill in all required fields');
-    return;
-  }
+    if (!formData.title || !formData.description || !formData.technologies || !formData.image || !formData.category) {
+      toast.error('Please fill in all required fields: title, description, technologies, image, category');
+      return;
+    }
 
-  const projectData = {
-    ...formData,
-    technologies: formData.technologies.split(',').map((tech) => tech.trim()).filter(Boolean),
-  };
+    const projectData = {
+      ...formData,
+      technologies: formData.technologies.split(',').map((t) => t.trim()).filter(Boolean),
+      // send both image and images[] so backend stores correctly
+      image: formData.image,
+      images: formData.image ? [formData.image, ...formData.screenshots] : formData.screenshots,
+    };
 
-  console.log('Submitting project data:', projectData);
+    console.log('Submitting project data:', projectData);
 
-  try {
-    if (editingProject) {
-      const id = editingProject.id || editingProject._id;
-      if (!id) {
-        toast.error('Project ID is missing, cannot update project.');
-      } else {
+    try {
+      if (editingProject) {
+        const id = editingProject.id || editingProject._id;
+        if (!id) return toast.error('Project ID missing, cannot update.');
         await adminProjectsApi.update(id, projectData);
         toast.success('Project updated successfully!');
+      } else {
+        await adminProjectsApi.create(projectData);
+        toast.success('Project created successfully!');
       }
-    } else {
-      await adminProjectsApi.create(projectData);
-      toast.success('Project created successfully!');
+      fetchProjects();
+      handleCloseModal();
+    } catch (error: any) {
+      console.error('Failed to save project:', error);
+      const msg = error.response?.data?.message || error.message || 'Failed to save project';
+      toast.error(msg);
     }
-    fetchProjects();
-    handleCloseModal();
-  } catch (error: any) {
-    console.error('Failed to save project:', error);
-    const errorMessage = error.response?.data?.message || error.message || 'Failed to save project';
-    toast.error(errorMessage);
-  }
-};
+  };
 
   const handleDelete = async (id?: string) => {
     if (!id) return;
@@ -147,6 +150,18 @@ const ManageProjects: React.FC = () => {
       } catch (error) {
         toast.error('Failed to delete project');
       }
+    }
+  };
+
+  const handleTogglePublish = async (project: Project) => {
+    const id = project.id || project._id;
+    if (!id) return;
+    try {
+      await adminProjectsApi.update(id, { published: !project.published });
+      toast.success(`Project ${!project.published ? 'published' : 'unpublished'}`);
+      fetchProjects();
+    } catch {
+      toast.error('Failed to update publish status');
     }
   };
 
@@ -166,8 +181,10 @@ const ManageProjects: React.FC = () => {
             <thead>
               <tr>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Technologies</th>
                 <th>Featured</th>
+                <th>Published</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -175,22 +192,27 @@ const ManageProjects: React.FC = () => {
               {projects.map((project, index) => (
                 <tr key={project.id ?? project._id ?? index}>
                   <td>{project.title}</td>
-                  <td>{project.technologies.join(', ')}</td>
+                  <td>
+                    <Badge bg="secondary">{project.category}</Badge>
+                  </td>
+                  <td style={{ maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {project.technologies.join(', ')}
+                  </td>
                   <td>{project.featured ? '⭐ Yes' : 'No'}</td>
                   <td>
                     <Button
                       size="sm"
-                      variant="warning"
-                      className="me-2"
-                      onClick={() => handleOpenModal(project)}
+                      variant={project.published ? 'success' : 'outline-secondary'}
+                      onClick={() => handleTogglePublish(project)}
                     >
+                      {project.published ? '✅ Live' : '⬜ Draft'}
+                    </Button>
+                  </td>
+                  <td>
+                    <Button size="sm" variant="warning" className="me-2" onClick={() => handleOpenModal(project)}>
                       Edit
                     </Button>
-                    <Button
-                      size="sm"
-                      variant="danger"
-                      onClick={() => handleDelete(project.id ?? project._id)}
-                    >
+                    <Button size="sm" variant="danger" onClick={() => handleDelete(project.id ?? project._id)}>
                       Delete
                     </Button>
                   </td>
@@ -199,7 +221,7 @@ const ManageProjects: React.FC = () => {
             </tbody>
           </Table>
 
-          {/* Modal for Add/Edit */}
+          {/* Add / Edit Modal */}
           <Modal show={showModal} onHide={handleCloseModal} size="lg">
             <Modal.Header closeButton>
               <Modal.Title>{editingProject ? 'Edit Project' : 'Add New Project'}</Modal.Title>
@@ -217,7 +239,7 @@ const ManageProjects: React.FC = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label>Description </Form.Label>
+                  <Form.Label>Description *</Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={3}
@@ -238,13 +260,47 @@ const ManageProjects: React.FC = () => {
                   />
                 </Form.Group>
 
+                <Row>
+                  <Col md={6}>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Category *</Form.Label>
+                      <Form.Select
+                        value={formData.category}
+                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                        required
+                      >
+                        {CATEGORY_OPTIONS.map(opt => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </Form.Select>
+                    </Form.Group>
+                  </Col>
+                  <Col md={6}>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Status</Form.Label>
+                      <Form.Select
+                        value={formData.status}
+                        onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                      >
+                        {STATUS_OPTIONS.map(opt => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </Form.Select>
+                    </Form.Group>
+                  </Col>
+                </Row>
+
                 <FileUpload
                   label="Project Image *"
                   onUploadComplete={(url) => setFormData({ ...formData, image: url })}
                   accept="image/*"
                 />
                 {formData.image && (
-                  <img src={formData.image} alt="Preview" style={{ width: '200px', marginBottom: '1rem' }} />
+                  <img
+                    src={formData.image}
+                    alt="Preview"
+                    style={{ width: '100%', maxHeight: 200, objectFit: 'cover', marginBottom: '1rem', borderRadius: 8 }}
+                  />
                 )}
 
                 <Form.Group className="mb-3">
@@ -266,37 +322,33 @@ const ManageProjects: React.FC = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Check
-                    type="checkbox"
-                    label="Featured Project"
-                    checked={formData.featured}
-                    onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3">
                   <Form.Label>Order</Form.Label>
                   <Form.Control
                     type="number"
                     value={formData.order}
-                    onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) })}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label>Category </Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="e.g. web, mobile, data-science"
-                    value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    required
+                    onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) || 0 })}
                   />
                 </Form.Group>
 
+                <div className="d-flex gap-4 mb-3">
+                  <Form.Check
+                    type="switch"
+                    id="featured-switch"
+                    label="Featured Project"
+                    checked={formData.featured}
+                    onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
+                  />
+                  <Form.Check
+                    type="switch"
+                    id="published-switch"
+                    label="Published (visible on portfolio)"
+                    checked={formData.published}
+                    onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
+                  />
+                </div>
+
                 <div className="d-flex justify-content-end gap-2">
-                  <Button variant="secondary" onClick={handleCloseModal}>
-                    Cancel
-                  </Button>
+                  <Button variant="secondary" onClick={handleCloseModal}>Cancel</Button>
                   <Button type="submit" className="btn-primary-custom">
                     {editingProject ? 'Update' : 'Create'} Project
                   </Button>

@@ -1,20 +1,24 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IProject extends Document {
-  id?: string; //for frontend mapping
+  id?: string;
   title: string;
   description: string;
   longDescription?: string;
   technologies: string[];
-  category: 'web' | 'mobile' | 'desktop' | 'ai-ml' | 'data-science' | 'other';
+  category: string;           // removed enum restriction — accept any string
   status: 'completed' | 'in-progress' | 'planned';
   featured: boolean;
-  images: string[];
+  published: boolean;         // NEW: publish/unpublish toggle
+  image: string;              // NEW: primary image (single URL from Cloudinary)
+  images: string[];           // keep for backward compat / screenshots
   thumbnailImage?: string;
   liveUrl?: string;
   githubUrl?: string;
   videoUrl?: string;
   demoUrl?: string;
+  screenshots?: string[];
+  demoVideo?: string;
   startDate?: Date;
   endDate?: Date;
   challenges?: string;
@@ -36,7 +40,8 @@ const projectSchema = new Schema<IProject>(
     category: {
       type: String,
       required: true,
-      enum: ['web', 'mobile', 'desktop', 'ai-ml', 'data-science', 'other'],
+      trim: true,
+      // No enum — accept any string the admin provides (Web, Mobile, etc.)
     },
     status: {
       type: String,
@@ -44,7 +49,11 @@ const projectSchema = new Schema<IProject>(
       default: 'completed',
     },
     featured: { type: Boolean, default: false },
-    images: { type: [String], default: [] }, // array of URLs
+    published: { type: Boolean, default: false },   // NEW
+    image: { type: String, default: '' },            // NEW: primary image URL
+    images: { type: [String], default: [] },
+    screenshots: { type: [String], default: [] },
+    demoVideo: { type: String, default: '' },
     thumbnailImage: String,
     liveUrl: String,
     githubUrl: String,
@@ -62,20 +71,18 @@ const projectSchema = new Schema<IProject>(
   {
     timestamps: true,
     toJSON: {
-      virtuals: true, // include virtuals in JSON output
-      transform: function (doc, ret) {
-        // type assertion to avoid TypeScript 'delete' operand errors
+      virtuals: true,
+      transform: function (_doc, ret) {
         if (ret && (ret as any)._id) {
-          ret.id = (ret as any)._id.toString(); 
+          ret.id = (ret as any)._id.toString();
         }
-        delete (ret as any)._id; 
+        delete (ret as any)._id;
         delete (ret as any).__v;
       },
     },
   }
 );
 
-// index for sorting
 projectSchema.index({ order: 1, createdAt: -1 });
 
 export default mongoose.model<IProject>('Project', projectSchema);

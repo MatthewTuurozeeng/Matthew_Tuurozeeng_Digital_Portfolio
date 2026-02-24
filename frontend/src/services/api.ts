@@ -1,18 +1,45 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
-// Type definitions
 export interface Project {
-  id: number;
+  id: string;
+  _id?: string;
   title: string;
   description: string;
+  longDescription?: string;
   technologies: string[];
-  image: string;
-  githubUrl?: string;
-  liveUrl?: string;
-  // New media fields
+  category: string;
+  status?: string;
+  image: string;           // primary image URL
+  images?: string[];       // extra screenshots
   screenshots?: string[];
   demoVideo?: string;
-  featured?: boolean;
+  githubUrl?: string;
+  liveUrl?: string;
+  videoUrl?: string;
+  featured: boolean;
+  published: boolean;
+  order: number;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface ImpactInitiative {
+  id: string;
+  _id?: string;
+  title: string;
+  period?: string;
+  color?: string;
+  description: string;
+  category: string;
+  achievements?: string[];
+  stats?: { label: string; value: string }[];
+  tags?: string[];
+  image?: string;
+  gallery?: string[];
+  link?: string;
+  featured: boolean;
+  published: boolean;
+  order: number;
 }
 
 export interface ContactFormData {
@@ -27,18 +54,6 @@ export interface ContactResponse {
   message: string;
 }
 
-export interface ImpactInitiative {
-  id: number;
-  title: string;
-  period: string;
-  color: string;
-  description: string;
-  achievements: string[];
-  // New media fields
-  image?: string;
-  gallery?: string[];
-}
-
 export interface Profile {
   name: string;
   title: string;
@@ -51,22 +66,15 @@ export interface Profile {
     tools: string[];
   };
   careerGoals: string;
-  principles: Array<{
-    title: string;
-    description: string;
-  }>;
+  principles: Array<{ title: string; description: string }>;
 }
 
-// Create axios instance with base configuration
 const apiClient: AxiosInstance = axios.create({
   baseURL: (import.meta as any).env?.VITE_API_URL || 'http://localhost:4000/api',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
   timeout: 10000,
 });
 
-// Request interceptor for adding auth tokens
 apiClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem('authToken');
@@ -75,18 +83,14 @@ apiClient.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Response interceptor for handling errors
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
       console.error('API Error:', error.response.data);
-      
       if (error.response.status === 401) {
         localStorage.removeItem('authToken');
         window.location.href = '/login';
@@ -100,40 +104,34 @@ apiClient.interceptors.response.use(
   }
 );
 
-// API Service Methods
 export const api = {
   getProjects: async (): Promise<Project[]> => {
     const response = await apiClient.get<Project[]>('/projects');
     return response.data;
   },
-  
-  getProjectById: async (id: number): Promise<Project> => {
+  getProjectById: async (id: string): Promise<Project> => {
     const response = await apiClient.get<Project>(`/projects/${id}`);
     return response.data;
   },
-  
   submitContact: async (data: ContactFormData): Promise<ContactResponse> => {
     const response = await apiClient.post<ContactResponse>('/contact', data);
     return response.data;
   },
-  
   getImpactInitiatives: async (): Promise<ImpactInitiative[]> => {
-    const response = await apiClient.get<ImpactInitiative[]>('/impact');
+    const response = await apiClient.get<ImpactInitiative[]>('/impacts');
     return response.data;
   },
-  
   getProfile: async (): Promise<Profile> => {
     const response = await apiClient.get<Profile>('/profile');
     return response.data;
   },
 };
+
 export const getUnreadContactsCount = async (): Promise<number> => {
   const res = await apiClient.get<{ count: number }>('/contacts/unread/count');
   return res.data.count;
 };
 
-
-// Named exports
 export const getProjects = api.getProjects;
 export const getProjectById = api.getProjectById;
 export const submitContact = api.submitContact;
