@@ -95,35 +95,127 @@ The platform allows dynamic content management (projects, fellowships, CVs, prin
 ---
 
 ## Project Structure
-frontend/ 
-    public/              
-    pages/               
-    components/            
-    services/            
-    styles/               
-    utils/                 
-    types/                 # TypeScript interfaces & types
-    hooks/                 # Custom React hooks
-    context/               # React context (state management)
-next.config.js         # Next.js configuration
-tailwind.config.js     # Tailwind CSS configuration
-tsconfig.json          # TypeScript configuration
-package.json
-admin-dashboard/ 
-backend/ # Express API & database logic
-    src/
-        controllers/ # Request handlers
-        routes/ # API routes
-        middleware/ # Auth & security middleware
-        services/ # Business logic
-        prisma/ # Prisma schema & migrations
-        utils/ # Helper utilities
-        server.ts
-    .env
-    package.json
-docs/ # Documentation and diagrams
-README.md
-.gitignore
+├── README.md
+├── backend
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── config
+│   │   │   ├── cloudinary.ts
+│   │   │   └── database.ts
+│   │   ├── controllers
+│   │   │   ├── AuthController.ts
+│   │   │   ├── CVcontroller.ts
+│   │   │   ├── ContactController.ts
+│   │   │   ├── ImpactController.ts
+│   │   │   ├── ProfileController.ts
+│   │   │   └── ProjectController.ts
+│   │   ├── middleware
+│   │   │   ├── Auth.ts
+│   │   │   ├── ErrorHandler.ts
+│   │   │   └── Upload.ts
+│   │   ├── models
+│   │   │   ├── CV.ts
+│   │   │   ├── Contact.ts
+│   │   │   ├── Impact.ts
+│   │   │   ├── Profile.ts
+│   │   │   ├── Project.ts
+│   │   │   └── User.ts
+│   │   ├── routes
+│   │   │   ├── AuthRoute.ts
+│   │   │   ├── CVroute.ts
+│   │   │   ├── ContactRoute.ts
+│   │   │   ├── ImpactRoute.ts
+│   │   │   ├── ProfileRoute.ts
+│   │   │   ├── ProjectRoute.ts
+│   │   │   └── UploadRoute.ts
+│   │   ├── scripts
+│   │   │   └── SeedData.ts
+│   │   ├── server.ts
+│   │   ├── uploads
+│   │   │   └── porfolio_project_image.png
+│   │   └── utils
+│   │       ├── EmailService.ts
+│   │       ├── SeedAdmin.ts
+│   │       ├── seedData.ts
+│   │       └── testEmail.ts
+│   └── tsconfig.json
+└── frontend
+    ├── README.md
+    ├── eslint.config.ts
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── public
+    │   ├── assets
+    │   │   ├── images
+    │   │   │   ├── backgroundImage
+    │   │   │   │   ├── Hero-Imag.svg
+    │   │   │   │   ├── hero-image.svg
+    │   │   │   │   └── hero_im.jpeg
+    │   │   │   ├── impactImages
+    │   │   │   ├── profileImage
+    │   │   │   │   └── profile-photo.jpg
+    │   │   │   └── projectImages
+    │   │   │       ├── Personal_Portfolio.png
+    │   │   │       └── School_Website.png
+    │   │   └── videos
+    │   ├── documents
+    │   │   └── Matthew_Tuurozeeng_Resume.pdf
+    │   └── favicon.ico
+    ├── src
+    │   ├── App.tsx
+    │   ├── components
+    │   │   ├── Footer.tsx
+    │   │   ├── ImageGallery.tsx
+    │   │   ├── ImageWithFallback.tsx
+    │   │   ├── Navbar.tsx
+    │   │   ├── ProjectCard.tsx
+    │   │   ├── VideoPlayer.tsx
+    │   │   └── admin
+    │   │       ├── CVForm.tsx
+    │   │       ├── DashboardCard.tsx
+    │   │       ├── FileUpload.tsx
+    │   │       ├── ImpactForm.tsx
+    │   │       ├── ProfileForm.tsx
+    │   │       ├── ProjectForm.tsx
+    │   │       └── Sidebar.tsx
+    │   ├── constants
+    │   │   └── media.ts
+    │   ├── context
+    │   │   └── AuthContext.tsx
+    │   ├── index.css
+    │   ├── main.tsx
+    │   ├── pages
+    │   │   ├── About.tsx
+    │   │   ├── CV.tsx
+    │   │   ├── Contact.tsx
+    │   │   ├── Home.tsx
+    │   │   ├── Impact.tsx
+    │   │   ├── Projects.tsx
+    │   │   └── admin
+    │   │       ├── Dashboard.tsx
+    │   │       ├── Login.tsx
+    │   │       ├── ManageCV.tsx
+    │   │       ├── ManageContacts.tsx
+    │   │       ├── ManageImpact.tsx
+    │   │       ├── ManageProfile.tsx
+    │   │       └── ManageProjects.tsx
+    │   ├── routes
+    │   │   └── AppRoutes.tsx
+    │   ├── services
+    │   │   ├── AdminApi.ts
+    │   │   └── api.ts
+    │   ├── styles
+    │   │   └── cv.css
+    │   ├── utils
+    │   │   └── ProtectedRoutes.tsx
+    │   └── vite-env.d.ts
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    └── vite.config.js
+
+32 directories, 88 files
 
 
 ---
