@@ -95,6 +95,7 @@ The platform allows dynamic content management (projects, fellowships, CVs, prin
 ---
 
 ## Project Structure
+```text
 ├── README.md
 ├── backend
 │   ├── package-lock.json
@@ -214,6 +215,7 @@ The platform allows dynamic content management (projects, fellowships, CVs, prin
     ├── tsconfig.json
     ├── tsconfig.node.json
     └── vite.config.js
+```
 
 32 directories, 88 files
 
