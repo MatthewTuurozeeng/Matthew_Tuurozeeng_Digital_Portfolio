@@ -1,23 +1,7 @@
 import type { Project } from '../services/api';
 
 const projectsData: Project[] = [
-  {
-    id: 'proj-portfolio',
-    title: 'Personal Professional Platform',
-    description:
-      'A full-stack portfolio platform with custom admin dashboard, media uploads, and dynamic content management.',
-    technologies: ['React', 'Vite', 'TypeScript', 'Node.js', 'MongoDB', 'Cloudinary', 'Vercel'],
-    category: 'web',
-    status: 'in-progress',
-    image: '/assets/images/projectImages/Personal_Portfolio.png',
-    images: ['/assets/images/projectImages/Personal_Portfolio.png'],
-    screenshots: [],
-    githubUrl: 'https://github.com/MatthewTuurozeeng/My_Portfolio_Website',
-    liveUrl: '', // https://matthew-portfolio.dev
-    featured: true,
-    published: true,
-    order: 1,
-  },
+  
   {
     id: 'proj-school',
     title: 'School Webite',
@@ -31,9 +15,9 @@ const projectsData: Project[] = [
     screenshots: [],
     githubUrl: 'https://github.com/MatthewTuurozeeng/Machris-website',
     liveUrl: '',
-    featured: false,
+    featured: true,
     published: true,
-    order: 2,
+    order: 1,
   },
   {
     id: 'proj-fyby',
@@ -50,14 +34,31 @@ const projectsData: Project[] = [
     liveUrl: '',
     featured: false,
     published: true,
-    order: 3,
+    order: 2,
   },
 
+  {
+    id: 'proj-portfolio',
+    title: 'Personal Professional Platform',
+    description:
+      'A full-stack portfolio platform with custom admin dashboard, media uploads, and dynamic content management.',
+    technologies: ['React', 'Vite', 'TypeScript', 'Node.js', 'MongoDB', 'Cloudinary', 'Vercel'],
+    category: 'web',
+    status: 'in-progress',
+    image: '/assets/images/projectImages/Personal_Portfolio.png',
+    images: ['/assets/images/projectImages/Personal_Portfolio.png'],
+    screenshots: [],
+    githubUrl: 'https://github.com/MatthewTuurozeeng/My_Portfolio_Website',
+    liveUrl: '', // https://matthew-portfolio.dev
+    featured: true,
+    published: true,
+    order: 3,
+  },
   {
     id: 'proj-course-management-system',
     title: 'Ashesi Course Management System',
     description:
-      ' A web-based application designed to support course administration and attendance tracking for faculty and students. The platform allows faculty members to create and manage courses, and either accept or decline student requests to join their classes. Faculty can also create class sessions and generate unique attendance codes that students use to mark their attendance during each session. Students can browse available courses, request to join courses, and mark attendance using the generated codes. The system also allows students to track their personal attendance records, while faculty members can monitor and manage the attendance of students across all class sessions.',
+      ' A web-based application designed to support course administration and attendance tracking for faculty and students. The platform allows faculty members to create and manage courses, and either accept or decline student requests to join their classes. Faculty can also create class sessions and generate unique attendance codes that students use to mark their attendance during each session. Students can browse available courses, request to join courses, see courses they are registered in,  and mark attendance using the generated codes. The system also allows students to track their personal attendance records, while faculty members can monitor and manage the attendance of students across all class sessions.',
     technologies: [' HTML' , 'CSS Bootstrap', 'JavaScript', 'PHP',  'MySQL', 'InfinityFree'],
     category: 'education',
     status: 'Completed',
@@ -68,7 +69,7 @@ const projectsData: Project[] = [
     liveUrl: '',
     featured: true,
     published: true,
-    order: 3,
+    order: 4,
   },
 ];
 

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
-import { submitContact, ContactFormData } from '../services/api';
+// import { submitContact, ContactFormData } from '../services/api';
+import { ContactFormData } from '../services/api';
+
+
+const WHATSAPP_NUMBER = '233543317402';
 
 const Contact: React.FC = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>();
@@ -13,18 +17,41 @@ const Contact: React.FC = () => {
     setSubmitting(true);
     setSubmitMessage('');
     
+    // try {
+    //   const response = await submitContact(data);
+    //   setMessageType('success');
+    //   setSubmitMessage(response.message || 'Thank you! Your message has been sent successfully.');
+    //   reset();
+    // } catch (error) {
+    //   setMessageType('danger');
+    //   setSubmitMessage('Sorry, there was an error sending your message. Please try again.');
+    // } finally {
+    //   setSubmitting(false);
+    // }
     try {
-      const response = await submitContact(data);
+      const text = encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\nMessage: ${data.message}`
+      );
+      const link = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+      window.open(link, '_blank');
+
       setMessageType('success');
-      setSubmitMessage(response.message || 'Thank you! Your message has been sent successfully.');
+      setSubmitMessage('Opening WhatsApp… ');
       reset();
     } catch (error) {
       setMessageType('danger');
-      setSubmitMessage('Sorry, there was an error sending your message. Please try again.');
+      setSubmitMessage('Unable to open WhatsApp. Please try again.');
     } finally {
       setSubmitting(false);
     }
   };
+  <Button 
+        type="submit" 
+        className="btn-primary-custom" 
+        disabled={submitting}
+      >
+        {submitting ? 'Opening WhatsApp…' : 'Send via WhatsApp'}
+      </Button>
   
   return (
     <Container className="py-5">
@@ -62,13 +89,13 @@ const Contact: React.FC = () => {
                 LinkedIn
               </a>
               <a 
-                href="https://github.com/MatthewTuurozeeng" 
+                href="https://www.instagram.com/matthewtuurozeeng/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="me-3" 
                 style={{ color: '#994545', textDecoration: 'none' }}
               >
-                GitHub
+                Instagram
               </a>
               <a 
                 href="https://web.facebook.com/tuurozeeng.matthew" 

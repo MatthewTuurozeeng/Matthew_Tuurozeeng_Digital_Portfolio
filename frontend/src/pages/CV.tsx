@@ -617,7 +617,7 @@ const CV: React.FC = () => {
       <div className="text-center mt-5">
         <div className="d-flex gap-3 justify-content-center flex-wrap">
           <a
-            href="/documents/Matthew-Tuurozeeng-Resume.pdf"
+            href={resumePath}
             download
             className="btn btn-primary-custom"
             role="button"
