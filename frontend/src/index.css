@@ -222,6 +222,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+
 .about-profile-image:hover {
   transform: scale(1.03);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
@@ -278,4 +279,31 @@ body {
 .badge {
   font-size: 0.75rem;
   padding: 0.5rem 0.75rem;
+}
+@media (max-width: 992px) {
+  .about-profile-image {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+.footer-link {
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.social-link {
+  color: #994545;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  color: #6c2e2e;
+  transform: translateY(-1px);
 }

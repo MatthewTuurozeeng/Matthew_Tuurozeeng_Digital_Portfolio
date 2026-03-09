@@ -3,6 +3,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 // import { submitContact, ContactFormData } from '../services/api';
 import { ContactFormData } from '../services/api';
+import { BsLinkedin, BsInstagram, BsFacebook } from 'react-icons/bs';
+
+
 
 
 const WHATSAPP_NUMBER = '233543317402';
@@ -17,17 +20,6 @@ const Contact: React.FC = () => {
     setSubmitting(true);
     setSubmitMessage('');
     
-    // try {
-    //   const response = await submitContact(data);
-    //   setMessageType('success');
-    //   setSubmitMessage(response.message || 'Thank you! Your message has been sent successfully.');
-    //   reset();
-    // } catch (error) {
-    //   setMessageType('danger');
-    //   setSubmitMessage('Sorry, there was an error sending your message. Please try again.');
-    // } finally {
-    //   setSubmitting(false);
-    // }
     try {
       const text = encodeURIComponent(
         `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\nMessage: ${data.message}`
@@ -78,32 +70,30 @@ const Contact: React.FC = () => {
           
           <div className="mb-4">
             <h5 style={{ color: '#994545' }}>Social Media</h5>
-            <div>
-              <a 
-                href="https://www.linkedin.com/in/matthewtuurozeeng" 
-                target="_blank" 
+            <div className="d-flex gap-3 flex-wrap">
+              <a
+                className="social-link"
+                href="https://www.linkedin.com/in/matthewtuurozeeng"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="me-3" 
-                style={{ color: '#994545', textDecoration: 'none' }}
               >
-                LinkedIn
+                <BsLinkedin size={18} /> LinkedIn
               </a>
-              <a 
-                href="https://www.instagram.com/matthewtuurozeeng/" 
-                target="_blank" 
+              <a
+                className="social-link"
+                href="https://www.instagram.com/matthewtuurozeeng/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="me-3" 
-                style={{ color: '#994545', textDecoration: 'none' }}
               >
-                Instagram
+                <BsInstagram size={18} /> Instagram
               </a>
-              <a 
-                href="https://web.facebook.com/tuurozeeng.matthew" 
-                target="_blank" 
+              <a
+                className="social-link"
+                href="https://web.facebook.com/tuurozeeng.matthew"
+                target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: '#994545', textDecoration: 'none' }}
               >
-                Facebook
+                <BsFacebook size={18} /> Facebook
               </a>
             </div>
           </div>

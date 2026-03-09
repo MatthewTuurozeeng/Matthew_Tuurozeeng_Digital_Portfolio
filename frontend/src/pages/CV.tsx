@@ -37,7 +37,7 @@ const CV: React.FC = () => {
         <Col lg={6} className="mb-4">
           <Card className="card-custom h-100">
             <Card.Body>
-              <h4 style={{ color: '#994545' }}>📋 Master CV</h4>
+              <h4 style={{ color: '#994545' }}> Master CV</h4>
               <p>
                 Comprehensive document containing all my experiences, projects, skills, 
                 and achievements. Perfect for getting a complete overview of my professional journey.
@@ -63,7 +63,7 @@ const CV: React.FC = () => {
         <Col lg={6} className="mb-4">
           <Card className="card-custom h-100">
             <Card.Body>
-              <h4 style={{ color: '#9C484F' }}>🎯 Tailored Resume</h4>
+              <h4 style={{ color: '#9C484F' }}> Tailored Resume</h4>
               <p>
                 Role-specific resume highlighting relevant experiences and skills. 
                 Optimized for specific job applications and recruiter review.
