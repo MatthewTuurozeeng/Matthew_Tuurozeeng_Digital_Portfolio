@@ -213,7 +213,7 @@ body {
 
 }
 .about-profile-image {
-  width: 500px;             /* wider for portrait */
+  width: 480px;             /* wider for portrait */
   height: 660px;            /* taller for full head-to-shoulders */
   object-fit: cover;        /* crops correctly without stretching */
   border-radius: 12px;      /* subtle rounded corners */
