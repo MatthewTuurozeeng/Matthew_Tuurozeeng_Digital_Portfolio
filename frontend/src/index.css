@@ -213,13 +213,16 @@ body {
 
 }
 .about-profile-image {
-  width: 380px;             /* wider for portrait */
-  height: 420px;            /* taller for full head-to-shoulders */
+  width: 500px;             /* wider for portrait */
+  height: 660px;            /* taller for full head-to-shoulders */
   object-fit: cover;        /* crops correctly without stretching */
   border-radius: 12px;      /* subtle rounded corners */
   border: 4px solid var(--secondary); /* clean border */
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25); /* soft shadow for depth */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  
 }
 
 
@@ -241,14 +244,6 @@ body {
   background: linear-gradient(135deg, rgba(153,69,69,0.2), rgba(156,72,79,0.2));
   z-index: 0;
 }
-
-.about-profile-image {
-  position: relative;
-  z-index: 1;
-}
-
-
-
 
 /* Modal Improvements */
 .modal-content {
@@ -283,7 +278,7 @@ body {
 @media (max-width: 992px) {
   .about-profile-image {
     width: 100%;
-    max-width: 380px;
+    max-width: 600px;
   }
 }
 .footer-link {

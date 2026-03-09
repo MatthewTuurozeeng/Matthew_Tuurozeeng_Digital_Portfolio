@@ -125,7 +125,7 @@ const CV: React.FC = () => {
                   <div className="left">
                     <strong>Ashesi University</strong> <br />
                     BSc. Computer Science <br />
-                    Cumulative GPA: 3.67/4.00
+                    {/* Cumulative GPA: 3.67/4.00 */}
                   </div>
                   <div className="right">
                     Berekuso, Eastern Region <br />
@@ -629,7 +629,7 @@ const CV: React.FC = () => {
             className="btn btn-secondary-custom"
             variant="outline-success"
           >
-            ✉️ Contact Me
+            Contact Me
           </Button>
           <Button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

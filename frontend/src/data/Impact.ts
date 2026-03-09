@@ -23,34 +23,7 @@ const impactData: ImpactInitiative[] = [
   published: true,
   order: 1,
 },
-  {
-    id: 'impact-bce-tutoring',
-    title: 'Alma Mater Tutoring & BECE Prep',
-    period: '2022  -  2023',
-    color: '#994545',
-    description:
-      'Spent a full academic year tutoring junior high students at my alma mater, preparing two batches for the BECE exams.',
-    category: 'education',
-    achievements: [
-      'Mentored 60+ students weekly across Math, Science, and ICT',
-      'Designed revision timetables and mock exams',
-      'Helped two cohorts improve BECE pass rates',
-    ],
-    stats: [
-      { label: 'Students', value: '60+' },
-      { label: 'Cohorts', value: '2' },
-    ],
-    tags: ['Education', 'Mentorship', 'Community'],
-    image: '/assets/images/impactImages/impact1_2.jpeg',
-    gallery: [
-      '/assets/images/impactImages/impact1_3.jpeg',
-      '/assets/images/impactImages/impact1_4.jpeg',
-    ],
-    link: '',
-    featured: false,
-    published: true,
-    order: 2,
-  },
+  
   {
     id: 'impact-fyby',
     title: 'For Youth By Youth (FYBY) Movement',
@@ -79,6 +52,34 @@ const impactData: ImpactInitiative[] = [
     featured: true,
     published: true,
     order: 3,
+  },
+  {
+    id: 'impact-bce-tutoring',
+    title: 'Alma Mater Tutoring & BECE Prep',
+    period: '2022  -  2023',
+    color: '#994545',
+    description:
+      'Spent a full academic year tutoring junior high students at my alma mater, preparing two batches for the BECE exams.',
+    category: 'education',
+    achievements: [
+      'Mentored 60+ students weekly across Math, Science, and ICT',
+      'Designed revision timetables and mock exams',
+      'Helped two cohorts improve BECE pass rates',
+    ],
+    stats: [
+      { label: 'Students', value: '60+' },
+      { label: 'Cohorts', value: '2' },
+    ],
+    tags: ['Education', 'Mentorship', 'Community'],
+    image: '/assets/images/impactImages/impact1_2.jpeg',
+    gallery: [
+      '/assets/images/impactImages/impact1_3.jpeg',
+      '/assets/images/impactImages/impact1_4.jpeg',
+    ],
+    link: '',
+    featured: false,
+    published: true,
+    order: 2,
   },
 ];
 
