@@ -1,4 +1,4 @@
-# Personal Professional Platform  
+# Personal Professional Porfolio  
 *A Scalable Full-Stack Portfolio with Custom Content Management Dashboard*
 
 ---
@@ -216,9 +216,6 @@ The platform allows dynamic content management (projects, fellowships, CVs, prin
     ├── tsconfig.node.json
     └── vite.config.js
 ```
-
-32 directories, 88 files
-
 
 ---
 

@@ -48,7 +48,7 @@ const About: React.FC = () => {
 
         <Col lg={7}>
           <h3 style={{ color: '#994545' }}>{title}</h3>
-          <p className="lead">{bio}</p>
+          {/* <p className="lead">{bio}</p> */}
           <p style={{ whiteSpace: 'pre-line' }}>{careerGoals}</p>
         </Col>
       </Row>

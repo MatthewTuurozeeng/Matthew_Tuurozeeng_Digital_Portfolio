@@ -4,7 +4,7 @@ const projectsData: Project[] = [
   
   {
     id: 'proj-school',
-    title: 'School Webite',
+    title: 'School Website',
     description:
       'A modern, responsive web application for managing school admissions, enquiries, and information for Machris Christian Academy, Nadowli, Ghana. It provides essential information to parents, students, and the community Streamline the admission application process and enable efficient communication through an enquiry system Offer administrative tools for managing applications and content',
     technologies: [' React Next.js', 'Bootstrap', 'Node.js Express', 'MySQL database', 'Railway', 'Cloudinary', 'Vercel', 'Render'],
