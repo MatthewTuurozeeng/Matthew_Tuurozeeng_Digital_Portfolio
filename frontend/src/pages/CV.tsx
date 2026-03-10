@@ -213,6 +213,19 @@ const CV: React.FC = () => {
                   <div className="right">Apr 2024 - May 2024</div>
                 </div>
 
+                <div className="entry">
+                  <div className="left">
+                    <strong>Africa Leadership Academy</strong> - South Africa <br />
+                    <b>Phoenix Resource DIC Participant</b>
+                    <ul>
+                      <li>Co-developed in a team of 5, a solution to safely decommission aircraft in Africa, focusing on sustainability and cost efficiency</li>
+                      <li>Designed a model to repurpose 75% of aircraft materials, reducing hazardous waste by 30%</li>
+                      <li>Proposed a regional recycling hub to cut decommissioning costs by 20%</li>
+                    </ul>
+                  </div>
+                  <div className="right">Jan 2025 - Apr 2025</div>
+                </div>
+
               </section>
               <div className="entry">
                   <div className="left">
@@ -252,35 +265,9 @@ const CV: React.FC = () => {
                         Conducted research to identify 5+ potential partnership opportunities, leading to two new
                         partnership agreements
                       </li>
-                      <li>
-                        Supported cross-functional collaboration by facilitating communication between internal
-                        teams and external stakeholders
-                      </li>
                     </ul>
                   </div>
                 <div className="right">Jun 2024 - Oct 2024</div>
-              </div>
-
-              <div className="entry">
-                <div className="left">
-                  <strong>Dipa (Business Start-up)</strong> - Ashesi University <br />
-                  <b>Researcher & Chief Operations Officer</b>
-                  <ul>
-                    <li>
-                      Led ethnographic research with 30+ market women to identify key drivers of unhealthy eating
-                      habits and inform solution design
-                    </li>
-                    <li>
-                      Conducted a market feasibility study analysing 50+ survey responses to validate demand and
-                      refine product features
-                    </li>
-                    <li>
-                      Oversaw development and pilot testing of a minimum viable product, achieving 85% positive
-                      user feedback and strong indicators for market adoption
-                    </li>
-                  </ul>
-                </div>
-                <div className="right">Jan 2024 - Sep 2024</div>
               </div>
 
               <div className="entry">
@@ -324,8 +311,112 @@ const CV: React.FC = () => {
               </div>
               <div className="right">Mar 2013 - Sep 2020</div>
             </div>
+            
 
-            <section>
+
+              {/* Projects Section */}
+              <section>
+                <h2>PROJECTS AND RESEARCH</h2>
+                <div className="entry">
+                  <div className="left">
+                    <strong>Matthew Tuurozeeng Professional Portfolio</strong> - Accra, Ghana <br />
+                    <b>Full-Stack Product Owner & Developer</b>
+                    <ul>
+                      <li>
+                        Architected a full-stack portfolio with an admin dashboard and REST API, shipping 15+ reusable components and accelerating future project launches.
+                      </li>
+                      <li>
+                        Implemented a static-data fallback plus WhatsApp contact automation, enabling recruiters to reach me instantly even without a backend.
+                      </li>
+                      <li>
+                        Deployed the Vite/React frontend to Vercel with CI-ready tooling, achieving sub-1s First Contentful Paint on desktop and mobile.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Jan 2026 - Mar 2026</div>
+                </div>
+
+                <div className="entry">
+                  <div className="left">
+                    <strong>Machris Christian Academy</strong> - Nadowli, Ghana <br />
+                    <b>Full-Stack Web Developer</b>
+                    <ul>
+                      <li>
+                        Designed and developed a modern, responsive web application serving as the school's digital
+                        presence and admission management system
+                      </li>
+                      <li>
+                        Developed RESTful APIs using Express.js and integrated a MySQL database for reliable,
+                        database-driven application and enquiry management
+                      </li>
+                      <li>
+                        Delivered a clean, intuitive UI using React, Bootstrap, and Vite, ensuring cross-device
+                        responsiveness and usability
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Nov 2025 - Dec 2025</div>
+                </div>
+
+                <div className="entry">
+                  <div className="left">
+                    <strong>For Youth By Youth (FYBY) Platform</strong> <br />
+                    <b>Project Coordinator & Frontend Developer</b>
+                    <ul>
+                      <li>
+                        Coordinated a five-member development team to build a collaborative web platform empowering
+                        young people to connect, volunteer, and lead community-driven social impact initiatives
+                      </li>
+                      <li>
+                        Implemented core platform features such as blogs, event management, volunteer matching, and
+                        community engagement tools
+                      </li>
+                      <li>
+                        Managed deployment and optimization processes, ensuring responsive design, fast load times,
+                        and SEO-friendly routing
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Oct 2025 - Nov 2025</div>
+                </div>
+
+                <div className="entry">
+                <div className="left">
+                  <strong>Dipa </strong> - Ashesi University <br />
+                  <b>Researcher & Chief Operations Officer</b>
+                  <ul>
+                    <li>
+                      Led ethnographic research with 30+ market women to identify key drivers of unhealthy eating
+                      habits and inform solution design
+                    </li>
+                    <li>
+                      Conducted a market feasibility study analysing 50+ survey responses to validate demand and
+                      refine product features
+                    </li>
+                    <li>
+                      Oversaw development and pilot testing of a minimum viable product, achieving 85% positive
+                      user feedback and strong indicators for market adoption
+                    </li>
+                  </ul>
+                </div>
+                <div className="right">Jan 2024 - Sep 2024</div>
+              </div>
+
+                <div className="entry">
+                  <div className="left">
+                    <strong>Ashesi University</strong> - Ghana <br />
+                    <b>Frontend Developer and Project Collaborator</b>
+                    <ul>
+                      <li>Co-developed an interactive web platform to teach discrete math concepts</li>
+                      <li>Designed modular, exercise-based learning features that simplified complex topics, improving learner engagement and comprehension significantly</li>
+                      <li>Applied project management and teamwork skills by coordinating development tasks, meeting deadlines, and ensuring alignment with academic objectives</li>
+                    </ul>
+                  </div>
+                  <div className="right">Oct 2024 - Dec 2024</div>
+                </div>
+              </section>
+
+              <section>
             <h2>FELLOWSHIPS & LEADERSHIP PROGRAMS</h2>
 
             {/* Jim Leech Mastercard Foundation Fellowship */}
@@ -345,10 +436,6 @@ const CV: React.FC = () => {
                   <li>
                     Engaging in in-person activities including market research, prototyping, testing, and
                     networking to validate and scale business ideas
-                  </li>
-                  <li>
-                    Demonstrating entrepreneurial commitment by progressing through key milestones over
-                    several months with mentorship and structured support
                   </li>
                 </ul>
               </div>
@@ -373,10 +460,7 @@ const CV: React.FC = () => {
                     Collaborating with peers from 18+ countries to drive community transformation and foster
                     global solidarity
                   </li>
-                  <li>
-                    Receiving mentorship, wellness support, and leadership training to design impactful,
-                    youth-driven initiatives
-                  </li>
+                
                 </ul>
               </div>
               <div className="right"> Mar 2025 - Present</div>
@@ -407,90 +491,6 @@ const CV: React.FC = () => {
 
           </section>
 
-
-              {/* Projects Section */}
-              <section>
-                <h2>PROJECTS AND RESEARCH</h2>
-                <div className="entry">
-                  <div className="left">
-                    <strong>Machris Christian Academy</strong> - Nadowli, Ghana <br />
-                    <b>Full-Stack Web Developer (Third Year Web Technologies Project)</b>
-                    <ul>
-                      <li>
-                        Designed and developed a modern, responsive web application serving as the school's digital
-                        presence and admission management system
-                      </li>
-                      <li>
-                        Built role-based dashboards for administrators and teachers with secure JWT-based
-                        authentication and access control
-                      </li>
-                      <li>
-                        Developed RESTful APIs using Express.js and integrated a MySQL database for reliable,
-                        database-driven application and enquiry management
-                      </li>
-                      <li>
-                        Delivered a clean, intuitive UI using React, Bootstrap, and Vite, ensuring cross-device
-                        responsiveness and usability
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="right">Nov 2025 - Dec 2025</div>
-                </div>
-
-                <div className="entry">
-                  <div className="left">
-                    <strong>For Youth By Youth (FYBY) Platform</strong> <br />
-                    <b>Project Coordinator & Frontend Developer</b>
-                    <ul>
-                      <li>
-                        Coordinated a five-member development team to build a collaborative web platform empowering
-                        young people to connect, volunteer, and lead community-driven social impact initiatives
-                      </li>
-                      <li>
-                        Led technical decision-making, including tech stack selection and overall platform
-                        architecture, ensuring scalability and performance
-                      </li>
-                      <li>
-                        Implemented core platform features such as blogs, event management, volunteer matching, and
-                        community engagement tools
-                      </li>
-                      <li>
-                        Managed deployment and optimization processes, ensuring responsive design, fast load times,
-                        and SEO-friendly routing
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="right">Oct 2025 - Nov 2025</div>
-                </div>
-
-
-                <div className="entry">
-                  <div className="left">
-                    <strong>Africa Leadership Academy</strong> - South Africa <br />
-                    <b>Phoenix Resource DIC Participant</b>
-                    <ul>
-                      <li>Co-developed in a team of 5, a solution to safely decommission aircraft in Africa, focusing on sustainability and cost efficiency</li>
-                      <li>Designed a model to repurpose 75% of aircraft materials, reducing hazardous waste by 30%</li>
-                      <li>Proposed a regional recycling hub to cut decommissioning costs by 20%</li>
-                    </ul>
-                  </div>
-                  <div className="right">Jan 2025 - Apr 2025</div>
-                </div>
-
-                <div className="entry">
-                  <div className="left">
-                    <strong>Ashesi University</strong> - Ghana <br />
-                    <b>Frontend Developer and Project Collaborator</b>
-                    <ul>
-                      <li>Co-developed an interactive web platform to teach discrete math concepts</li>
-                      <li>Designed modular, exercise-based learning features that simplified complex topics, improving learner engagement and comprehension significantly</li>
-                      <li>Applied project management and teamwork skills by coordinating development tasks, meeting deadlines, and ensuring alignment with academic objectives</li>
-                    </ul>
-                  </div>
-                  <div className="right">Oct 2024 - Dec 2024</div>
-                </div>
-              </section>
-
               {/* Co-curricular Activities */}
               <section>
                 <h2>COMMUNITY ENGAGEMENT & SERVICE</h2>
@@ -513,7 +513,25 @@ const CV: React.FC = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="right">Dec 2025 - Jan 2026</div>
+                  <div className="right">Dec 2025 - Present</div>
+                </div>
+                <div className="entry">
+                  <div className="left">
+                    <strong>Talloires Network of Engaged Universities</strong> - Tufts University <br />
+                    <b>Social Media Design Consultant - Volunteer</b>
+                    <ul>
+                      <li>
+                        Designed 15+ multi-format social graphics per month, boosting average post reach by 28% across FYBY channels.
+                      </li>
+                      <li>
+                        Built reusable Canva/Figma templates that cut content turnaround time from 3 days to under 24 hours for partner teams.
+                      </li>
+                      <li>
+                        Co-led quarterly storytelling campaigns highlighting youth-led impact, increasing newsletter clickthrough by 18%.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Feb 2026 - Present</div>
                 </div>
 
                   <div className="entry">
@@ -536,6 +554,22 @@ const CV: React.FC = () => {
 
                   <div className="entry">
                     <div className="left">
+                      <strong>Robotics Club</strong> - Ashesi University <br />
+                      <b>Build Team Member</b>
+                      <ul>
+                        <li>
+                          Co-led a 5-person subteam to prototype an autonomous line-following robot, cutting lap times by 35% over the semester.
+                        </li>
+                        <li>
+                          Organized weekly troubleshooting clinics that helped 20+ members debug sensors and microcontroller code, boosting project completion rates.
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="right">Feb 2025 - Present</div>
+                  </div>
+
+                  <div className="entry">
+                    <div className="left">
                       <strong>Investment Club</strong> - Ashesi University <br />
                       <b>Active Member</b>
                       <ul>
@@ -552,45 +586,63 @@ const CV: React.FC = () => {
               </section>
 
 
-              {/* Skills Section */}
+                            {/* Skills Section */}
               <section>
                 <h2>SKILLS</h2>
-                <ul>
-                  <li>
-                    <strong>Programming & Web Development:</strong> HTML, CSS, JavaScript, React, Next.js, Python,
-                    Java, R
-                  </li>
-                  <li>
-                    <strong>Backend & Databases:</strong> Node.js, Express.js, RESTful APIs, JWT Authentication,
-                    MySQL, MySQL2, Cloudinary
-                  </li>
-                  <li>
-                    <strong>Data Science & AI:</strong> Machine Learning, Natural Language Processing, Rasa,
-                    chatbot development and deployment
-                  </li>
-                  <li>
-                    <strong>Data Visualisation & Analytics:</strong> Power BI, Matplotlib, Streamlit
-                  </li>
-                  <li>
-                    <strong>Frontend & Tooling:</strong> Vite, Bootstrap, React Bootstrap, React Router, Axios,
-                    React Hook Form
-                  </li>
-                  <li>
-                    <strong>Business & Operations:</strong> Business development, financial analysis, operations
-                    management, partnership strategy
-                  </li>
-                  <li>
-                    <strong>Research & Engagement:</strong> Youth-led participatory action research, ethical AI,
-                    cross-cultural collaboration, storytelling, communication, problem-solving
-                  </li>
-                  <li>
-                    <strong>Productivity & Version Control:</strong> Microsoft Office Suite (Word, Excel,
-                    PowerPoint, Outlook), Git, GitHub
-                  </li>
-                  <li>
-                    <strong>Languages:</strong> English (Fluent), Dagaare (Fluent)
-                  </li>
-                </ul>
+
+                <div className="skill-category mt-2">
+                  <h2 className="skill-subheading">Technical</h2>
+                  <ul>
+                    <li>
+                      <strong>Programming & Web Development:</strong> HTML, CSS, JavaScript, React, Next.js, Python,
+                      Java, R, Rasa, MySQL
+                    </li>
+                    <li>
+                      <strong>Backend & Databases:</strong> Node.js, Express.js, RESTful APIs, JWT Authentication,
+                      MySQL2, Cloudinary
+                    </li>
+                    <li>
+                      <strong>Data Science & AI:</strong> Machine Learning, Natural Language Processing, chatbot
+                      development & deployment
+                    </li>
+                    <li>
+                      <strong>Data Visualisation & Analytics:</strong> Power BI, Matplotlib, Streamlit
+                    </li>
+                    <li>
+                      <strong>Frontend & Tooling:</strong> Vite, Bootstrap, React Bootstrap, React Router, Axios,
+                      React Hook Form
+                    </li>
+                    <li>
+                      <strong>Productivity & Version Control:</strong> Microsoft Office Suite (Word, Excel,
+                      PowerPoint, Outlook), Git, GitHub
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="skill-category mt-3">
+                  <h2 className="skill-subheading">Leadership and Professional</h2>
+                  <ul>
+                    <li>
+                      <strong>Project Management:</strong> Team coordination, meeting deadlines, communication,
+                      problem-solving
+                    </li>
+                    <li>
+                      <strong>Business & Operations:</strong> Business development, financial analysis, operations
+                      management, partnership strategy
+                    </li>
+                    <li>
+                      <strong>Research & Engagement:</strong> Youth-led participatory action research, ethical AI,
+                      cross-cultural collaboration, storytelling
+                    </li>
+                    <li>
+                      <strong>Core Strengths:</strong> Strategic leadership and decision-making, designing and
+                      implementing scalable solutions
+                    </li>
+                    <li>
+                      <strong>Languages:</strong> English (Fluent), Dagaare (Fluent)
+                    </li>
+                  </ul>
+                </div>
               </section>
 
 

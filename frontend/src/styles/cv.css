@@ -30,7 +30,7 @@
   max-width: 800px;
   margin: auto;
   line-height: 1.4;
-  font-family: Verdana, sans-serif;
+  font-family: Verdana;;
   font-size: 8.5pt;
 }
 
@@ -54,8 +54,10 @@
 }
 
 .My-CV-container .contact-info p {
-  margin: 2px 0; 
+  margin: 2px 0;
+
 }
+
 
 .My-CV-container a {
   color: inherit;          
@@ -112,6 +114,13 @@
   margin-bottom: 5px;
 }
 
+
+.My-CV-container .name,
+.My-CV-container .contact-info {
+  text-align: center;
+}
+
+
 /* Print Styles */
 @media print {
   .btn, .card-header, nav, footer, .section-title, h4, .lead {
@@ -127,4 +136,25 @@
     border: none !important;
     box-shadow: none !important;
   }
+}
+
+
+section .skill-category h2,
+section .skiskill-category .skill-subheading
+section .subsection-title {
+  font-family: Verdana;
+  text-transform: none;
+  border-bottom: none;
+  font-size: 8.5pt;
+  margin-bottom: 7px;
+  
+}
+
+.skill-subheading {
+  font-family: Verdana;
+  font-size: 8.5pt;
+  text-transform: none;
+  border-bottom: none;
+  margin-bottom: 7px;
+  
 }
