@@ -71,6 +71,24 @@ const projectsData: Project[] = [
     published: true,
     order: 4,
   },
+
+  {
+    id: 'proj-storytelling-wix',
+    title: 'Digital Storytelling — “Social Media is Making People Unsocial”',
+    description:
+      'Created a multimedia storytelling site using Wix as the CMS. Produced an original CapCut video, scripted narrative copy, and integrated interactive sections to drive reflection on digital well-being. Published the site to collect peer feedback and measure engagement.',
+    technologies: ['Wix CMS', 'CapCut', 'Canva', 'Content Strategy', 'Video Editing'],
+    category: 'media',
+    status: 'Completed',
+    image: '/assets/images/projectImages/cms-site.png',
+    images: ['/assets/images/projectImages/cms-site.png'],
+    screenshots: [],
+    githubUrl: '',
+    liveUrl: 'https://tuurozeengmatthew.wixsite.com/agape-site',
+    featured: false,
+    published: true,
+    order: 5,
+  },
 ];
 
 export default projectsData;
