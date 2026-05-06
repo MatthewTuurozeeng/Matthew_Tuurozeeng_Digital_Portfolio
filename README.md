@@ -1,7 +1,10 @@
 # Personal Professional Porfolio  
-*A Scalable Full-Stack Portfolio with Custom Content Management Dashboard*
+*A Scalable Portfolio with Custom Content Management Dashboard*
 
 ---
+
+## Live Demo
+[Matthew Tuurozeeng — Portfolio](https://matthew-tuurozeeng-digital-portfoli.vercel.app)
 
 ## Overview
 This project is a **full-stack personal professional platform** designed to serve as my long-term digital identity as a Computer Science professional.
