@@ -68,7 +68,7 @@ const Projects: React.FC = () => {
 
   return (
     <Container className="py-5">
-      <h2 className="section-title">My Projects</h2>
+      <h2 className="section-title">Projects</h2>
       <p className="lead mb-4">A showcase of my technical work and creative solutions</p>
 
       {usingFallback && (
