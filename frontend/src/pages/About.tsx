@@ -130,6 +130,7 @@ const About: React.FC = () => {
         </Col>
       </Row>
 
+      {/* Anchor buttons below the profile section */}
       <div className="mt-5 flex flex-wrap gap-4">
         <button
           onClick={() => scrollTo('education')}
@@ -183,15 +184,16 @@ const About: React.FC = () => {
 
       <div id="education" className="mt-5">
         <h3 className="text-[#994545] text-2xl font-semibold mb-4">Education</h3>
-        <Timeline items={educationTimeline} variant="Education" />
+        <Timeline items={educationTimeline} variant="education" />
       </div>
 
       <div id="experience" className="mt-5">
         <h3 className="text-[#994545] text-2xl font-semibold mb-4">Work Experience</h3>
-        <Timeline items={experienceTimeline} variant="Experience" />
+        <Timeline items={experienceTimeline} variant="experience" />
       </div>
     </Container>
   );
+
 };
 
 export default About;
