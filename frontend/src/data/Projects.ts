@@ -1,40 +1,22 @@
 import type { Project } from '../services/api';
 
 const projectsData: Project[] = [
-  
   {
-    id: 'proj-school',
-    title: 'School Website',
+    id: 'proj-daakye',
+    title: 'Daakye Vendor Space',
     description:
-      'A modern, responsive web application for managing school admissions, enquiries, and information for Machris Christian Academy, Nadowli, Ghana. It provides essential information to parents, students, and the community Streamline the admission application process and enable efficient communication through an enquiry system Offer administrative tools for managing applications and content',
-    technologies: [' React Next.js', 'Bootstrap', 'Node.js Express', 'MySQL database', 'Railway', 'Cloudinary', 'Vercel', 'Render'],
+      'An inventory and sales management web application built for Ghanaian market vendors to manage stock, record sales, track orders, and view business analytics. Features real-time low-stock alerts that fire on every sale transaction, a full analytics dashboard surfacing top sellers and daily revenue summaries, and a layered RESTful backend across 8 route modules, 6 validators, and 5 services. Optimised for low-end phones and slow mobile connections serving informal market vendors across Ghana.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Node.js', 'Express', 'MongoDB Atlas', 'Mongoose', 'JWT', 'GitHub Actions', 'Vercel'],
     category: 'web',
     status: 'completed',
-    image: '/assets/images/projectImages/School_Website.png',
-    images: ['/assets/images/projectImages/School_Website.png'],
+    image: '/assets/images/projectImages/Daakye_Vendor_Space.png',
+    images: ['/assets/images/projectImages/Daakye_Vendor_Space.png'],
     screenshots: [],
-    githubUrl: 'https://github.com/MatthewTuurozeeng/Machris-website',
-    liveUrl: '',
+    githubUrl: 'https://github.com/MatthewTuurozeeng/local-market-inventory-and-sales-mgt-system',
+    liveUrl: 'https://local-market-inventory-and-sales-mg.vercel.app/',
     featured: true,
     published: true,
     order: 1,
-  },
-  {
-    id: 'proj-fyby',
-    title: 'For youth by Youth Website',
-    description:
-      ' A collaborative web platform empowering young people to connect, volunteer, and lead community-driven initiatives for positive social change. The platform creates an inclusive digital space where youth collaborate, share stories, and drive meaningful change',
-    technologies: ['React TypeScript', 'Tailwind CSS', 'Node js Express','prisma', 'PHP', 'PostgreSQL', 'Cloudinary', 'Vercel', 'Render'],
-    category: 'education',
-    status: 'Completed',
-    image: '/assets/images/projectImages/fyby.png',
-    images: ['/assets/images/projectImages/fyby.png'],
-    screenshots: [],
-    githubUrl: 'https://github.com/MatthewTuurozeeng/for-youth-by-youth-platform',
-    liveUrl: '',
-    featured: false,
-    published: true,
-    order: 2,
   },
 
   {
@@ -52,8 +34,43 @@ const projectsData: Project[] = [
     liveUrl: '', // https://matthew-portfolio.dev
     featured: true,
     published: true,
+    order: 2,
+  },
+  {
+    id: 'proj-school',
+    title: 'School Website',
+    description:
+      'A modern, responsive web application for managing school admissions, enquiries, and information for Machris Christian Academy, Nadowli, Ghana. It provides essential information to parents, students, and the community Streamline the admission application process and enable efficient communication through an enquiry system Offer administrative tools for managing applications and content',
+    technologies: [' React Next.js', 'Bootstrap', 'Node.js Express', 'MySQL database', 'Railway', 'Cloudinary', 'Vercel', 'Render'],
+    category: 'web',
+    status: 'completed',
+    image: '/assets/images/projectImages/School_Website.png',
+    images: ['/assets/images/projectImages/School_Website.png'],
+    screenshots: [],
+    githubUrl: 'https://github.com/MatthewTuurozeeng/Machris-website',
+    liveUrl: 'https://machris-website.vercel.app',
+    featured: true,
+    published: true,
     order: 3,
   },
+  {
+    id: 'proj-fyby',
+    title: 'For youth by Youth Website',
+    description:
+      ' A collaborative web platform empowering young people to connect, volunteer, and lead community-driven initiatives for positive social change. The platform creates an inclusive digital space where youth collaborate, share stories, and drive meaningful change',
+    technologies: ['React TypeScript', 'Tailwind CSS', 'Node js Express','prisma', 'PHP', 'PostgreSQL', 'Cloudinary', 'Vercel', 'Render'],
+    category: 'education',
+    status: 'Completed',
+    image: '/assets/images/projectImages/fyby.png',
+    images: ['/assets/images/projectImages/fyby.png'],
+    screenshots: [],
+    githubUrl: 'https://github.com/MatthewTuurozeeng/for-youth-by-youth-platform',
+    liveUrl: '',
+    featured: false,
+    published: true,
+    order: 4,
+  },
+
   {
     id: 'proj-course-management-system',
     title: 'Ashesi Course Management System',
@@ -69,7 +86,7 @@ const projectsData: Project[] = [
     liveUrl: '',
     featured: true,
     published: true,
-    order: 4,
+    order: 5,
   },
 
   {
@@ -87,7 +104,7 @@ const projectsData: Project[] = [
     liveUrl: 'https://tuurozeengmatthew.wixsite.com/agape-site',
     featured: false,
     published: true,
-    order: 5,
+    order: 6,
   },
 ];
 

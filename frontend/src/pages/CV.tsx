@@ -317,6 +317,31 @@ const CV: React.FC = () => {
               {/* Projects Section */}
               <section>
                 <h2>PROJECTS AND RESEARCH</h2>
+
+                <div className="entry">
+                  <div className="left">
+                    <strong>Daakye Vendor Space</strong> - Ghana <br />
+                    <b>Full-Stack Engineer</b>
+                    <ul>
+                      <li>
+                        Built a RESTful API with Node.js, Express, and TypeScript across 8 route
+                        modules, 6 validators, and 5 services following a strict layered architecture
+                        with JWT-secured endpoints and MongoDB Atlas database
+                      </li>
+                      <li>
+                        Engineered a ow-stock notification system and analytics dashboard
+                        tracking sales trends, daily summaries, and top-selling products across 5
+                        core data entities
+                      </li>
+                      <li>
+                        Shipped a full-stack application to Vercel via GitHub Actions
+                        CI/CD pipeline intended to serve informal market vendors across Ghana
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Feb 2026 - May 2026</div>
+                </div>
+
                 <div className="entry">
                   <div className="left">
                     <strong>Matthew Tuurozeeng Professional Portfolio</strong> - Accra, Ghana <br />
