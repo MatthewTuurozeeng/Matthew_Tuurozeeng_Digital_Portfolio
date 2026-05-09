@@ -8,7 +8,7 @@ const CV: React.FC = () => {
   return (
     <Container className="py-5">
       <div className="text-center mb-4">
-        <h2 className="section-title">My Curriculum Vitae</h2>
+        <h2 className="section-title">Curriculum Vitae</h2>
         <p className="lead">Complete professional background and experience</p>
         <div className="d-flex gap-3 justify-content-center mt-4">
           <Button 
