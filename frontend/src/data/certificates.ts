@@ -100,7 +100,7 @@ const certificates: Certificate[] = [
     'Learned about remote work, digital collaboration, and online professional skills',
     'Explored opportunities within the global digital economy and technology ecosystems',
   ],
-    assetUrl: '/documents/Matthew-Tuurozeeng-Digital-Economy-and-Work-Cert.pdf',
+    assetUrl: '/documents/Matthew-Tuurozeeng-Digital-Economy-and-Work-cert.pdf',
     assetType: 'pdf',
 },
 
