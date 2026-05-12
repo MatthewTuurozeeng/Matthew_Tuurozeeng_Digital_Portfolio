@@ -66,7 +66,7 @@ const AppRoutes: React.FC = () => {
         }
       />
       <Route
-        path="/admin/profile"
+        path="/admin/profile" 
         element={
           <ProtectedRoute>
             <ManageProfile />

@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import profileData from '../data/Profile';
 import Timeline, { TimelineItem } from '../components/Timeline';
+import certificates from '../data/certificates';
+import CertificateCard from '../components/CertificateCard';
 
 interface Skill {
   category: string;
@@ -177,6 +179,19 @@ const About: React.FC = () => {
                   <p>{principle.description}</p>
                 </Card.Body>
               </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
+
+      <div className="mt-5">
+        <h3 style={{ color: '#994545' }} className="mb-4">
+          Certifications & Programs
+        </h3>
+        <Row className="g-4">
+          {certificates.map((certificate) => (
+            <Col key={certificate.id} md={6} lg={4}>
+              <CertificateCard certificate={certificate} />
             </Col>
           ))}
         </Row>

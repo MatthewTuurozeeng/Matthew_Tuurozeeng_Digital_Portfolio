@@ -28,7 +28,7 @@ const CV: React.FC = () => {
             className="btn btn-secondary-custom btn-lg d-inline-flex align-items-center justify-content-center"
             role="button"
           >
-            Download Resume (PDF)
+            Download Resume
           </a>
         </div>
       </div>
