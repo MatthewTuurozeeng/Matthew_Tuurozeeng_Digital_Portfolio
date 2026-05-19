@@ -154,6 +154,7 @@ const Home: React.FC = () => {
           src={learningImg}
           alt="Continuous Learning"
           className="feature-image"
+          
         />
 
         <h4 className="feature-title">
