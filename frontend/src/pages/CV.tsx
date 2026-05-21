@@ -125,7 +125,7 @@ const CV: React.FC = () => {
                   <div className="left">
                     <strong>Ashesi University</strong> <br />
                     BSc. Computer Science <br />
-                    {/* Cumulative GPA: 3.67/4.00 */}
+                    {/* Cumulative GPA: 3.30/4.00 */}
                   </div>
                   <div className="right">
                     Berekuso, Eastern Region <br />
@@ -150,11 +150,15 @@ const CV: React.FC = () => {
                 <h2>ACHIEVEMENTS / AWARDS</h2>
                 <div className="entry">
                   <div className="left">MasterCard Foundation Scholar, Ashesi University</div>
-                  <div className="right">Jan 2024 - Jul 2027</div>
+                  <div className="right">Jan 2024 - Present</div>
                 </div>
                 <div className="entry">
-                  <div className="left">Scholars Entrepreneurship Fund Honors, Ashesi University</div>
-                  <div className="right">Jul 2025 - Oct 2025</div>
+                  <div className="left">Scholars Entrepreneurship Fund Honors, Ashesi University
+                    <ul>
+                      <li>Recognized for innovation and business viability, received $4000 grant to drive community impact</li>
+                    </ul>
+                  </div>
+                  <div className="right">Jun 2025 - Present</div>
                 </div>
               </section>
 
@@ -167,11 +171,11 @@ const CV: React.FC = () => {
                     <b>Co-founder & CEO</b>
                     <ul>
                       <li>Co-Founded a tiger nut farming business, supplying over 20 local market women and working towards large-scale production</li>
-                      <li>Secured a $1000 grant from the Mastercard Foundation Scholars Entrepreneurship Fund to scale the business operations by 40%</li>
+                      <li>Secured a $4000 grant from the Mastercard Foundation Scholars Entrepreneurship Fund to scale the business operations by 40%</li>
                       <li>Manage operations focused on sustainable farming practices and community engagement</li>
                     </ul>
                   </div>
-                  <div className="right">Jun 2024 - Present</div>
+                  <div className="right">Jan 2024 - Present</div>
                 </div>
 
                 <div className="entry">
@@ -267,10 +271,10 @@ const CV: React.FC = () => {
                       </li>
                     </ul>
                   </div>
-                <div className="right">Jun 2024 - Oct 2024</div>
+                <div className="right">Jan 2024 - Oct 2024</div>
               </div>
 
-              <div className="entry">
+              {/* <div className="entry">
                 <div className="left">
                   <strong>Mr. Dan Farming & Rearing Venture</strong> - Wa, Ghana <br />
                   <b>Agricultural Operations Manager</b>
@@ -289,7 +293,7 @@ const CV: React.FC = () => {
                   </ul>
                 </div>
                 <div className="right">2013 - 2024</div>
-              </div>
+              </div> */}
 
               <div className="entry">
                 <div className="left">
@@ -309,7 +313,7 @@ const CV: React.FC = () => {
                   </li>
                 </ul>
               </div>
-              <div className="right">Mar 2013 - Sep 2020</div>
+              <div className="right">Oct 2022 - Dec 2023</div>
             </div>
             
 
@@ -317,6 +321,26 @@ const CV: React.FC = () => {
               {/* Projects Section */}
               <section>
                 <h2>PROJECTS AND RESEARCH</h2>
+
+                <div className="entry">
+                  <div className="left">
+                    <strong>Matthew Tuurozeeng Professional Portfolio</strong> - Accra, Ghana <br />
+                    <b>Full-Stack Product Owner & Developer</b>
+                    <ul>
+                      <li>
+                        Architected a full-stack portfolio with an admin dashboard and REST API, shipping 15+ reusable components and accelerating future project launches.
+                      </li>
+                      <li>
+                        Implemented a static-data fallback plus WhatsApp contact automation, enabling recruiters to reach me instantly even without a backend.
+                      </li>
+                      <li>
+                        Deployed the Vite/React frontend to Vercel with CI-ready tooling, achieving sub-1s First Contentful Paint on desktop and mobile.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Jan 2026 - Present</div>
+                </div>
+
 
                 <div className="entry">
                   <div className="left">
@@ -344,25 +368,6 @@ const CV: React.FC = () => {
 
                 <div className="entry">
                   <div className="left">
-                    <strong>Matthew Tuurozeeng Professional Portfolio</strong> - Accra, Ghana <br />
-                    <b>Full-Stack Product Owner & Developer</b>
-                    <ul>
-                      <li>
-                        Architected a full-stack portfolio with an admin dashboard and REST API, shipping 15+ reusable components and accelerating future project launches.
-                      </li>
-                      <li>
-                        Implemented a static-data fallback plus WhatsApp contact automation, enabling recruiters to reach me instantly even without a backend.
-                      </li>
-                      <li>
-                        Deployed the Vite/React frontend to Vercel with CI-ready tooling, achieving sub-1s First Contentful Paint on desktop and mobile.
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="right">Jan 2026 - Mar 2026</div>
-                </div>
-
-                <div className="entry">
-                  <div className="left">
                     <strong>Machris Christian Academy</strong> - Nadowli, Ghana <br />
                     <b>Full-Stack Web Developer</b>
                     <ul>
@@ -385,7 +390,7 @@ const CV: React.FC = () => {
 
                 <div className="entry">
                   <div className="left">
-                    <strong>For Youth By Youth (FYBY) Platform</strong> <br />
+                    <strong>For Youth By Youth (FYBY) Platform</strong> - Ghana <br />
                     <b>Project Coordinator & Frontend Developer</b>
                     <ul>
                       <li>
@@ -407,7 +412,7 @@ const CV: React.FC = () => {
 
                 <div className="entry">
                 <div className="left">
-                  <strong>Dipa </strong> - Ashesi University <br />
+                  <strong>Dipa </strong> - Ghana <br />
                   <b>Researcher & Chief Operations Officer</b>
                   <ul>
                     <li>
@@ -429,7 +434,7 @@ const CV: React.FC = () => {
 
                 <div className="entry">
                   <div className="left">
-                    <strong>Ashesi University</strong> - Ghana <br />
+                    <strong>ThisCreators </strong> - Ghana <br />
                     <b>Frontend Developer and Project Collaborator</b>
                     <ul>
                       <li>Co-developed an interactive web platform to teach discrete math concepts</li>
@@ -522,7 +527,7 @@ const CV: React.FC = () => {
                 <div className="entry">
                   <div className="left">
                     <strong>Computing4All Initiative</strong> <br />
-                    <b>Founder & Volunteer Instructor</b>
+                    <b>Founder & Project Lead</b>
                     <ul>
                       <li>
                         Designed and delivered a community-based digital literacy program to equip school children
@@ -672,14 +677,14 @@ const CV: React.FC = () => {
 
 
               {/* References Section */}
-              <section>
+              {/* <section>
                 <h2>REFERENCES</h2>
                 <p>Available upon request</p>
                 <div className="indent-ref">
                   <p><strong>*WASSCE:</strong> West African Senior School Certificate Examination</p>
                   <p><strong>*DIC:</strong> Design and Innovation Challenge</p>
                 </div>
-              </section>
+              </section> */}
             </div>
           </Card.Body>
           <Card.Footer className="text-center bg-light">

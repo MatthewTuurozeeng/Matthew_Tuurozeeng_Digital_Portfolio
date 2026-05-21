@@ -82,7 +82,7 @@ const About: React.FC = () => {
       duration: 'Feb 2026 - Present',
       description: 'Design social media content and provide creative guidance to enhance digital engagement and outreach.',
       challenges: ['Maintaining consistent visual identity across multiple campaigns', 'Balancing storytelling with limited time and resources'],
-      achievements: ['Built reusable content templates to speed up production', 'Improved campaign clarity and engagement through improved layouts'],
+      achievements: ['Building reusable content templates to speed up production', 'Improving campaign clarity and engagement through improved layouts'],
     },
 
     {
@@ -91,7 +91,7 @@ const About: React.FC = () => {
       duration: '2025 - Present',
       description: 'Community digital literacy program teaching schoolchildren foundational computing skills.',
       challenges: ['Limited access to devices and stable internet', 'Designing lessons suitable for mixed learning levels'],
-      achievements: ['Delivered hands-on sessions to 25+ learners', 'Built a repeatable curriculum for future cohorts'],
+      achievements: ['Delivering hands-on sessions to 25+ learners', 'Building a repeatable curriculum for future cohorts'],
     },
     {
       title: 'Founder & CEO',
@@ -99,7 +99,7 @@ const About: React.FC = () => {
       duration: '2024  - Present',
       description: 'Leading an agribusiness venture focused on improving tiger nut production, value addition, and market access.',
       challenges: ['Coordinating production logistics across rural communities', 'Building a reliable supply chain with limited digital infrastructure'],
-      achievements: ['Launched pilot production cycles and formalized farmer partnerships', 'Applied product/tech thinking to streamline operations'],
+      achievements: ['Launched pilot production cycles and formalized farmer partnerships', 'Applying product/tech thinking to streamline operations'],
     },
 
     {
