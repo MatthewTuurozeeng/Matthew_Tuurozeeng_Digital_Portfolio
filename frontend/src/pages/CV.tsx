@@ -149,6 +149,17 @@ const CV: React.FC = () => {
               <section>
                 <h2>ACHIEVEMENTS / AWARDS</h2>
                 <div className="entry">
+                  <div className="left">Dean's List, Spring Semester, Ashesi University
+                    <ul>
+                      <li>Recognized for outstanding academic performance and academic excellence</li>
+                    </ul>
+                
+                  </div>
+
+                  <div className="right">2025/2026 Academic Year</div>
+                </div>
+
+                <div className="entry">
                   <div className="left">MasterCard Foundation Scholar, Ashesi University</div>
                   <div className="right">Jan 2024 - Present</div>
                 </div>
@@ -178,6 +189,21 @@ const CV: React.FC = () => {
                   <div className="right">Jan 2024 - Present</div>
                 </div>
 
+              
+                <div className="entry">
+                  <div className="left">
+                    <strong>CalBank PLC</strong> - Accra, Ghana <br />
+                    <b>Automation & Development Intern</b>
+                    <ul>
+                      <li>Evaluated CalBank's digital platforms and identified accessibility and customer experience improvement opportunities</li>
+                      <li>Designed and developed an AI-powered customer support chatbot using RAG and ChromaDB, leveraging the Bank's knowledge base</li>
+                      <li>Built the chatbot prototype with React and Node.js/Express, including the knowledge pipeline, system architecture, and UI design</li>
+                    </ul>
+                  </div>
+                  <div className="right">Jun 2026</div>
+                </div>
+
+
                 <div className="entry">
                   <div className="left">
                     <strong>Ashesi MasterCard Foundation Scholars Community</strong> - Ashesi University, Ghana <br />
@@ -188,7 +214,7 @@ const CV: React.FC = () => {
                       <li>Assisting in planning and coordinating 4 events to foster stronger sense of community and improve scholar engagement</li>
                     </ul>
                   </div>
-                  <div className="right">Jun 2024 - Present</div>
+                  <div className="right">Jun 2024 - Jul 2025</div>
                 </div>
 
                 <div className="entry">
