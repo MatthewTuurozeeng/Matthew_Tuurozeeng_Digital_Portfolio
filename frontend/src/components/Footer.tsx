@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <Container>
         <Row>
           <Col md={6} className="text-center text-md-start mb-3 mb-md-0">
-            <p className="mb-0">© 2026 Matthew Tuurozeeng's Professional Portfolio. All rights reserved.</p>
+            <p className="mb-0">© 2026 Matthew Tuurozeeng. All rights reserved.</p>
           </Col>
           <Col md={6} className="text-center text-md-end d-flex justify-content-center justify-content-md-end gap-3">
             <a className="footer-link" href="https://www.linkedin.com/in/matthewtuurozeeng" target="_blank" rel="noopener noreferrer">
